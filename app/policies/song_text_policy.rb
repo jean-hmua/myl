@@ -5,15 +5,18 @@ class SongTextPolicy < ApplicationPolicy
     end
 
     def index?
-      record.user == user
+      true
+      # record.user == user || user.admin?
     end
   
     def show?
-      record.user == user
+      true
+      # record.user == user || user.admin?
     end
   
     def create?
-      record.user == user
+      true
+      # record.user == user || user.admin?
     end
   
     def new?
@@ -21,7 +24,8 @@ class SongTextPolicy < ApplicationPolicy
     end
   
     def update?
-      record.user == user
+      true
+      # record.user == user || user.admin?
     end
   
     def edit?
@@ -29,7 +33,8 @@ class SongTextPolicy < ApplicationPolicy
     end
   
     def destroy?
-      record.user == user
+      true
+      # record.user == user || user.admin?
     end
   end
 end
