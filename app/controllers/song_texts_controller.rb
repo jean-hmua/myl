@@ -4,6 +4,7 @@ class SongTextsController < ApplicationController
 
   # GET /song_texts or /song_texts.json
   def index
+    @user = current_user
     @song_texts = policy_scope(SongText).order(created_at: :desc)
   end
 
@@ -42,7 +43,8 @@ class SongTextsController < ApplicationController
 
   # PATCH/PUT /song_texts/1 or /song_texts/1.json
   def update
-    @song_text.user = current_user
+    @song_text.update(song_text_params)
+    authorize @song_text
     respond_to do |format|
       if @song_text.update(song_text_params)
         format.html { redirect_to @song_text, notice: "Song text was successfully updated." }
@@ -76,6 +78,6 @@ class SongTextsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def song_text_params
       #params.fetch(:song_text, {})
-      params.require(:song_text).permit(:title, :content, :notes, :ratings, :color_tag)
+      params.require(:song_text).permit(:title, :content, :notes, :rating, :color_tag, :created_at, :updated_at)
     end
 end
