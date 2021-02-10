@@ -15,8 +15,7 @@ class SongTextsController < ApplicationController
 
   # GET /song_texts/new
   def new
-    @song_text = SongText.new
-    @song_text.user = current_user
+    @song_text = current_user.song_texts.new
     authorize @song_text
   end
 
@@ -76,6 +75,7 @@ class SongTextsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def song_text_params
-      params.fetch(:song_text, {})
+      #params.fetch(:song_text, {})
+      params.require(:song_text).permit(:title, :content, :notes, :ratings, :color_tag)
     end
 end
