@@ -3,26 +3,31 @@ class SongTextsController < ApplicationController
 
   # GET /song_texts or /song_texts.json
   def index
-    @song_texts = SongText.all
+    @user = current_user
+    @song_texts = SongText.where(user_id = @user)
+    authorize @song_texts
   end
 
   # GET /song_texts/1 or /song_texts/1.json
   def show
+    authorize @song_text
   end
 
   # GET /song_texts/new
   def new
     @song_text = SongText.new
+    authorize @song_texts
   end
 
   # GET /song_texts/1/edit
   def edit
+    authorize @song_text
   end
 
   # POST /song_texts or /song_texts.json
   def create
     @song_text = SongText.new(song_text_params)
-
+    authorize @song_texts
     respond_to do |format|
       if @song_text.save
         format.html { redirect_to @song_text, notice: "Song text was successfully created." }
@@ -37,6 +42,7 @@ class SongTextsController < ApplicationController
   # PATCH/PUT /song_texts/1 or /song_texts/1.json
   def update
     respond_to do |format|
+      authorize @song_texts
       if @song_text.update(song_text_params)
         format.html { redirect_to @song_text, notice: "Song text was successfully updated." }
         format.json { render :show, status: :ok, location: @song_text }
