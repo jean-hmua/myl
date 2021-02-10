@@ -12,7 +12,8 @@
   <tbody>
     <% @song_texts.each do |song_text| %>
       <tr>
-        <td><%= link_to 'Show', song_text %></td>
+        
+        <td><%= link_to "#{song_text.title}", song_text %></td>
         <td><%= link_to 'Edit', edit_song_text_path(song_text) %></td>
         <td><%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

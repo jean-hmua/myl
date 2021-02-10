@@ -4,7 +4,8 @@ class CreateSongTexts < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :content
       t.string :notes
-      t.string :colorTag
+      t.string :color_tag
+      t.integer :rating
 
       t.timestamps
     end
