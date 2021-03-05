@@ -33,5 +33,7 @@
 // GLOBAL Settings
 .body-container {
   background-color: $pale-silver;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  // position: fixed;
 }

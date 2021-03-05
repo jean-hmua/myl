@@ -18,7 +18,7 @@
 }
 .user-tab {
   background-color: blue;
-  height: 100vh;
+  height: 86.2vh;
   .avatar {
     img {
       height: 50px;
@@ -33,4 +33,9 @@
 
 .notes-tab {
   background-color: green;
+}
+.footer {
+  grid-column: 0;
+  width: 100vw;
+  background-color: black;
 }
