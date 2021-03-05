@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 400px 3fr 1fr;
-  grid-gap: 10px;
+
 }
 .grid-content {
 
@@ -16,26 +16,56 @@
   background-color: white;
   height: 5vh;
 }
+//////////////
+// user tab //
+//////////////
 .user-tab {
   background-color: blue;
-  height: 86.2vh;
-  .avatar {
-    img {
-      height: 50px;
-      width: auto;
-    }
+  height: 89.3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  }
+
+  .user-info {
+
+    .avatar-pic {
+      width: 300px;
+      background-color: black;
+      img {
+        height: 250px;
+        width: 250px;
+      }
+  }
+
+  .user-lyrics-count {
+
+  }
+
+  .lyrics-menu {
+
   }
 }
 
+////////////////
+// lyrics tab //
+////////////////
 .lyrics-tab {
   background-color: red;
+  min-width: 600px;
 }
 
+
+////////////////
+// notes tab //
+////////////////
 .notes-tab {
   background-color: green;
+  min-width: 300px;
 }
 .footer {
   grid-column: 0;
-  width: 100vw;
   background-color: black;
 }

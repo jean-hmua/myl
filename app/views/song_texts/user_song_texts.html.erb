@@ -13,39 +13,48 @@
       
       </div>
 
-      <!--GRID -  user-tab -->
+      <!--GRID -  user-tab (flexbox)-->
       <div class="grid-content user-tab">
-        <!--GRID -  user container (avatar, name) -->
-        <div class="user-info container">
-          <div class="avatar">
+        <!--user container (avatar, name) -->
+        <div class="user-info">
+          <div class="avatar-pic">
             <%= image_tag  "https://thispersondoesnotexist.com/image" %>
           </div>
         </div>
+        <!--counter title -->
+        <div class="user-lyrics-count">
+          5 lyrics
+        </div>
 
-        <p>Song Texts from <%= @user.email %> id: <%= @user.id %> </p>
-        <% if @song_texts %>
-          <% @song_texts.each do |song_text| %>
-            <%= link_to "#{song_text.id} #{song_text.title}", song_text %><br>
-            <%= link_to 'Edit', edit_song_text_path(song_text) %>
-            <%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <!--lyrics menu -->
+        <div class="lyrics-menu">
+          <p>Song Texts from <%= @user.email %> id: <%= @user.id %> </p>
+          <% if @song_texts %>
+            <% @song_texts.each do |song_text| %>
+              <%= link_to "#{song_text.id} #{song_text.title}", song_text %><br>
+              <%= link_to 'Edit', edit_song_text_path(song_text) %>
+              <%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           <% end %>
-        <% end %>
-        
+        </div>
       </div>
+
       <!--GRID -  lyr-tab -->
       <div class="grid-content lyrics-tab">
 
       </div>
+
       <!--GRID -  notes-tab -->
       <div class="grid-content notes-tab">
       
       </div>
-      <!-- GRID - Footer-->
-      <div class="grid-content footer">
-        p
-      </div>
 
     </div>
+
+      <!--  - Footer-->
+      <div class="footer">
+        p
+      </div>
   </div>
 </div>
 
