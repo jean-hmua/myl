@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :song_texts
+  has_one_attached :avatar, dependent: :destroy
+  
 end

@@ -1,0 +1,38 @@
+<div class="body-container">
+  
+  <div class="content-container">
+    <div class="grid-container">
+      <div class="grid-content navbar">
+      
+      </div>
+      <%= link_to 'Back', song_texts_path %>
+      <div class="grid-content lyr-title">
+      
+      </div>
+      <div class="grid-content user-tab">
+        <div class="user-info container">
+          <div class="avatar">
+            <%= image_tag  "https://thispersondoesnotexist.com/image" %>
+          </div>
+        </div>
+
+        <p>Song Texts from <%= @user.email %> id: <%= @user.id %> </p>
+        <% if @song_texts %>
+          <% @song_texts.each do |song_text| %>
+            <%= link_to "#{song_text.id} #{song_text.title}", song_text %><br>
+            <%= link_to 'Edit', edit_song_text_path(song_text) %>
+            <%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <% end %>
+        
+      </div>
+      <div class="grid-content lyrics-tab">
+
+      </div>
+      <div class="grid-content notes-tab">
+      
+      </div>
+    </div>
+  </div>
+</div>
+

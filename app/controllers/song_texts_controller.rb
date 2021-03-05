@@ -1,17 +1,23 @@
 class SongTextsController < ApplicationController
   before_action :set_song_text, only: %i[ show edit update destroy ]
+  before_action :get_page_to_redirect
   before_action :authenticate_user!
 
   # GET /song_texts or /song_texts.json
   def index
-    @user = current_user
     @song_texts = policy_scope(SongText).order(created_at: :desc)
   end
 
-  # GET /song_texts/1 or /song_texts/1.json
+  # USER_SONG_TEXTS
+def user_song_texts
+  @user = current_user
+  @song_texts = policy_scope(SongText).order(created_at: :desc)
+  authorize @song_texts
+end
+
   def show
-    #@user = current_user
-    #@song_text = policy_scope(SongText).order(created_at: :desc)
+    @user = current_user
+    @song_texts = policy_scope(SongText).order(created_at: :desc)
   end
 
   # GET /song_texts/new
@@ -28,42 +34,40 @@ class SongTextsController < ApplicationController
 
   # POST /song_texts or /song_texts.json
   def create
-    @song_text = current_user.song_text.new(song_text_params)
-    authorize @song_texts
-    respond_to do |format|
+    @song_text = current_user.song_texts.new(song_text_params)
+    authorize @song_text
       if @song_text.save
-        format.html { redirect_to @song_text, notice: "Song text was successfully created." }
-        format.json { render :show, status: :created, location: @song_text }
+        redirect_to session.delete(:return_to)
+        flash[:notice] = " \n #{@song_text.title} was created"
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @song_text.errors, status: :unprocessable_entity }
+        redirect_to session.delete(:return_to)
+        flash[:notice] = " \n #{@song_text.title} was NOT created: #{@song_text.errors}"
       end
-    end
   end
 
   # PATCH/PUT /song_texts/1 or /song_texts/1.json
   def update
     @song_text.update(song_text_params)
     authorize @song_text
-    respond_to do |format|
-      if @song_text.update(song_text_params)
-        format.html { redirect_to @song_text, notice: "Song text was successfully updated." }
-        format.json { render :show, status: :ok, location: @song_text }
+      if @song_text.save
+        redirect_to session.delete(:return_to)
+        flash[:notice] = " \n #{@song_text.title} was edited"
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @song_text.errors, status: :unprocessable_entity }
+        redirect_to session.delete(:return_to)
+        flash[:notice] = " \n #{@song_text.title} was NOT edited: #{@song_text.errors}"
       end
-    end
   end
 
   # DELETE /song_texts/1 or /song_texts/1.json
   def destroy
+    # Gets current page to redirect later
     @song_text.user = current_user
-    @song_text.destroy
-
-    respond_to do |format|
-      format.html { redirect_to song_texts_url, notice: "Song text was successfully destroyed." }
-      format.json { head :no_content }
+    if @song_text.destroy
+      redirect_to session.delete(:return_to)
+      flash[:notice] = " \n #{@song_text.title} was deleted"
+    else
+      redirect_to session.delete(:return_to)
+      flash[:notice] = " \n #{@song_text.title} was NOT deleted: #{@song_text.errors}"
     end
   end
 
@@ -80,4 +84,9 @@ class SongTextsController < ApplicationController
       #params.fetch(:song_text, {})
       params.require(:song_text).permit(:title, :content, :notes, :rating, :color_tag, :created_at, :updated_at)
     end
+
+    def get_page_to_redirect
+      session[:return_to] ||= request.referer
+    end
+
 end

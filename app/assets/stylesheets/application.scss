@@ -27,3 +27,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show";
+@import "pages/user_song_texts";
+
+// GLOBAL Settings
+.body-container {
+  background-color: $pale-silver;
+  height: 100vh;
+}

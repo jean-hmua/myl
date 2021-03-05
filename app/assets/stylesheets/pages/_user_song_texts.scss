@@ -1,0 +1,36 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 400px 3fr 1fr;
+  grid-gap: 10px;
+}
+.grid-content {
+
+}
+
+.navbar {
+  grid-column: 1 / span 3;
+  background-color: black;
+}
+.lyr-title {
+  grid-column: 2 / span 2;
+  background-color: white;
+  height: 5vh;
+}
+.user-tab {
+  background-color: blue;
+  height: 100vh;
+  .avatar {
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+}
+
+.lyrics-tab {
+  background-color: red;
+}
+
+.notes-tab {
+  background-color: green;
+}
