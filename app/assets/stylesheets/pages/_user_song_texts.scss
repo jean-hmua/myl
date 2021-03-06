@@ -1,60 +1,80 @@
 .grid-container {
+  // add media queries for netbooks, tablets, phones
+  height: 100vh;
   display: grid;
-  grid-template-columns: 400px 3fr 1fr;
-
+  grid-template-columns: 350px 55% auto;
+  grid-template-rows: 50px 50px auto 20px;
+  grid-template-areas: 
+  "navbar navbar navbar"
+  "usertab lyricstitle lyricstitle"
+  "usertab lyricstab notestab"
+  "footer footer footer";
+  padding-bottom: 1px;
+  background-color: black;
 }
-.grid-content {
-
-}
-
 .navbar {
-  grid-column: 1 / span 3;
+  grid-area: navbar;
   background-color: black;
 }
 .lyr-title {
-  grid-column: 2 / span 2;
+  grid-area: lyricstitle;
   background-color: white;
-  height: 5vh;
 }
 //////////////
 // user tab //
 //////////////
 .user-tab {
-  background-color: blue;
-  height: 89.3vh;
+  grid-area: usertab;
+  background-color: rgb(129, 129, 194);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  
+  .lyrics-menu {
+    margin-bottom: 10px;
   }
+}
 
   .user-info {
-
     .avatar-pic {
+      margin-top: 10px;
+      // make everything smaller in height and width if screen is smaller
+      .img-bkg {
+      position: relative;
+      z-index: 0;
+      //left: 25px;
       width: 300px;
+      height: 300px;
       background-color: black;
+      }
       img {
+        position: relative;
+        z-index: 1;
+        left: 25px;
+        bottom: 275px;
         height: 250px;
         width: 250px;
       }
+      .username {
+        margin-top: -250px;
+
+      }
   }
-
-  .user-lyrics-count {
-
+  .username {
+    margin-top: -250px;
   }
+  
 
-  .lyrics-menu {
 
-  }
 }
 
 ////////////////
 // lyrics tab //
 ////////////////
 .lyrics-tab {
-  background-color: red;
-  min-width: 600px;
+  grid-area: lyricstab;
+  background-color: rgb(184, 105, 105);
+  min-width: 400px;
 }
 
 
@@ -62,10 +82,11 @@
 // notes tab //
 ////////////////
 .notes-tab {
-  background-color: green;
+  grid-area: notestab;
+  background-color: rgb(103, 165, 103);
   min-width: 300px;
 }
 .footer {
-  grid-column: 0;
+  grid-area: footer;
   background-color: black;
 }

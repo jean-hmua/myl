@@ -1,60 +1,61 @@
-<div class="body-container">
+
+
+<!--GRID wrapper-->
+<div class="grid-container wrapper">
+
+  <!--GRID -  navbar (holds more link to user and MyLy (to public index)) -->
+  <div class="navbar">
+    NAVBAR
+  </div>
+  <%#= link_to 'Back', song_texts_path %>
+  <!--GRID -  lyr-title -->
+  <div class="lyr-title">
+    LYRICS TITLE
+  </div>
+
+  <!--GRID -  user-tab (flexbox)-->
+  <div class="user-tab">
   
-  <div class="content-container">
-  <!--GRID-->
-    <div class="grid-container">
-       <!--GRID -  navbar (holds more link to user and MyLy (to public index)) -->
-      <div class="grid-content navbar">
-      
-      </div>
-      <%= link_to 'Back', song_texts_path %>
-      <!--GRID -  lyr-title -->
-      <div class="grid-content lyr-title">
-      
-      </div>
-
-      <!--GRID -  user-tab (flexbox)-->
-      <div class="grid-content user-tab">
-        <!--user container (avatar, name) -->
-        <div class="user-info">
-          <div class="avatar-pic">
-            <%= image_tag  "https://thispersondoesnotexist.com/image" %>
-          </div>
+    <!--user container (avatar, name) -->
+    <div class="user-info">
+      <div class="avatar-pic">
+        <div class="img-bkg">
         </div>
-        <!--counter title -->
-        <div class="user-lyrics-count">
-          5 lyrics
-        </div>
-
-        <!--lyrics menu -->
-        <div class="lyrics-menu">
-          <p>Song Texts from <%= @user.email %> id: <%= @user.id %> </p>
-          <% if @song_texts %>
-            <% @song_texts.each do |song_text| %>
-              <%= link_to "#{song_text.id} #{song_text.title}", song_text %><br>
-              <%= link_to 'Edit', edit_song_text_path(song_text) %>
-              <%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          <% end %>
-        </div>
+        <%= image_tag  "https://thispersondoesnotexist.com/image" %>
       </div>
-
-      <!--GRID -  lyr-tab -->
-      <div class="grid-content lyrics-tab">
-
-      </div>
-
-      <!--GRID -  notes-tab -->
-      <div class="grid-content notes-tab">
-      
-      </div>
-
+        <h3 class="username"><%= @user.email %></h3>
     </div>
 
-      <!--  - Footer-->
-      <div class="footer">
-        p
+    <!--lyrics menu -->
+    <div class="lyrics-menu">
+      <div class="each-lyric">
+        <% if @song_texts %>
+          <% @song_texts.each do |song_text| %>
+            <h2><%= link_to "#{song_text.id} #{song_text.title}", song_text %></h2> 
+            <h2><%= link_to "#{song_text.id} #{song_text.title}", song_text %></h2>
+          <% end %>
+        <% end %>
       </div>
+    </div>
+
   </div>
+
+  <!--GRID -  lyr-tab -->
+  <div class="lyrics-tab">
+    p
+  </div>
+
+  <!--GRID -  notes-tab -->
+  <div class="notes-tab">
+    p
+  </div>
+
+
+  <!--  - Footer-->
+  <div class="footer">
+    p
+  </div>
+
 </div>
+
 
