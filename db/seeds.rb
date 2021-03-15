@@ -24,6 +24,8 @@ puts "🔑🔑🔑 created admin #{admin} \n "
 user_dummy = User.create(email: 'dummy@email.com', password: '000000')
 user_dummy2 = User.create(email: 'dummy2@email.com', password: '000000')
 
+jean = User.create(email: 'jeanbattirola@gmail.com', password: 'iseeparis250792', admin: true)
+
 puts "👨‍🦲 created dummy 1 and 2: \n
 👨‍🦲 dummy 1 = #{user_dummy} \n
 👨‍🦲 dummy 2 = ##{user_dummy2} \n "
