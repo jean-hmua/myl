@@ -25,7 +25,7 @@
   grid-template-areas: 
   "userinfo"
   "lyricstab";
-  align-content: space-between;
+  //align-content: start;
   grid-template-rows: 30% auto;
   .user-info {
     grid-row: userinfo;
@@ -50,19 +50,24 @@
     grid-row: lyricsmenu;
     justify-self: center;
     overflow-x: hidden;
-    min-height: 200px;
-    max-height: 100%;
+    min-height: 100%;
     background-color: #fff;
     z-index: 1;
-    width: 95%;
+    width: 100%;
     .song-link {
       justify-self: center;
-      text-align: center;
+      text-align: center;   
+      margin-bottom: 20px;      
     }
     .delete-song {
+      transform: translateY(50%);
       text-align: right !important;
       float: left;
       display: inline;
+      padding: 0;
+      border: 0;
+      margin-left: 3px;
+      background-color: transparent;
     }
   }
 }
@@ -79,7 +84,7 @@
     align-items: start;
     justify-content: center;
     grid-template-columns: 70% 30%;
-    grid-template-rows: 100px auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
     "title title"
     "lyrics notes";
@@ -88,14 +93,14 @@
     ////////////////
     .title {
       grid-area: title;
-      padding: 30px;
+      padding: 30px 30px 0 30px;
     }
     ////////////////
     // lyrics tab //
     ////////////////
     .lyrics {
       grid-area: lyrics;
-      padding: 30px;
+      padding: 0 30px 30px 30px;
       white-space: pre-wrap;
       text-align: center;
     }
@@ -104,7 +109,7 @@
     ////////////////
     .notes {
       grid-area: notes;
-      padding: 30px;
+      padding: 0 30px 30px 30px;
       white-space: pre-wrap;
     }
   }

@@ -29,8 +29,6 @@ end
 
   # GET /song_texts/1/edit
   def edit
-    #@song_text.user = current_user
-    #authorize @song_text
   end
 
   # POST /song_texts or /song_texts.json
@@ -38,10 +36,10 @@ end
     @song_text = current_user.song_texts.new(song_text_params)
     authorize @song_text
       if @song_text.save
-        redirect_to user_song_texts_path
+        redirect_to user_song_texts_path(song: @song_text.id)
         flash[:notice] = " \n #{@song_text.title} was created"
       else
-        redirect_to user_song_texts_path
+        redirect_to user_song_texts_path(song: @song_text.id)
         flash[:notice] = " \n #{@song_text.title} was NOT created: #{@song_text.errors}"
       end
   end
@@ -51,10 +49,10 @@ end
     @song_text.update(song_text_params)
     authorize @song_text
       if @song_text.save
-        redirect_to session.delete(:return_to)
+        redirect_to user_song_texts_path(song: @song_text.id)
         flash[:notice] = " \n #{@song_text.title} was edited"
       else
-        redirect_to session.delete(:return_to)
+        redirect_to user_song_texts_path(song: @song_text.id)
         flash[:notice] = " \n #{@song_text.title} was NOT edited: #{@song_text.errors}"
       end
   end
