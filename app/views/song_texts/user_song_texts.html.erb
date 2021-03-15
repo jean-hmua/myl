@@ -1,6 +1,37 @@
 <!--GRID wrapper-->
 <div class="grid-container wrapper">
 
+  <!-- new lyric Modal -->
+  <div class="modal fade" id="newLyricsModal" tabindex="-1" role="dialog" aria-labelledby="newLyricsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(@song_text) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :rating %>
+            <%= f.input :content %>
+            <%= f.input :notes %>
+            <%= f.input :color_tag %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <!--GRID -  navbar (holds more link to user and MyLy (to public index)) -->
   <div class="navbar">
     NAVBAR
@@ -20,14 +51,16 @@
     <!--lyrics menu -->
     <div class="lyrics-menu">
       <div class="each-lyric">
-        <h2><a href="/song_texts/new" data-toggle="modal" data-target="#newLyricsModal">New</a></h2>
         <ul class="lyrics-list nav nav-tabs flex-column" id="lyricsTab" role="tablist">
-        <% if @song_texts %>
-          <% @song_texts.each do |song_text| %>
-            <li class="nav-item">
-            <h2 class="nav-link" id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false"><%= "#{song_text.id} #{song_text.title}" %></h2></li> 
+          <li class="nav-item song-link">
+            <h2><a href="/song_texts/new" data-toggle="modal" data-target="#newLyricsModal" class="song-link">New</a></h2>
+          </li>
+          <% if @song_texts %>
+            <% @song_texts.each do |song_text| %>
+              <li class="nav-item">
+              <h2 class="nav-link song-link" id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false"><%= "#{song_text.title}" %></h2></li> 
+            <% end %>
           <% end %>
-        <% end %>
         </ul>
       </div>
     </div>
@@ -66,39 +99,8 @@
 
   <!--  - Footer-->
   <div class="footer">
-    p
+
   </div>
 
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="newLyricsModal" tabindex="-1" role="dialog" aria-labelledby="newLyricsModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for(@song_text) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <%= f.input :title %>
-          <%= f.input :rating %>
-          <%= f.input :content %>
-          <%= f.input :notes %>
-          <%= f.input :color_tag %>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.button :submit %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
