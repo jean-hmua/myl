@@ -58,7 +58,10 @@
           <% if @song_texts %>
             <% @song_texts.each do |song_text| %>
               <li class="nav-item">
-              <h2 class="nav-link song-link" id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false"><%= "#{song_text.title}" %></h2></li> 
+                <%= button_to "X" , song_text_path(song_text) , method: :delete , class:"delete-song", data: { confirm: 'Are you sure?'} %>
+                <h2 class="nav-link song-link" id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false" style="background-color: <%= song_text.color_tag if song_text.color_tag%>"><%= "#{song_text.title}" %>
+                </h2>
+              </li> 
             <% end %>
           <% end %>
         </ul>
