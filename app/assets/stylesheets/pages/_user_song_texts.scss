@@ -1,5 +1,4 @@
 .grid-container {
-  // add media queries for netbooks, tablets, phones
   max-height: 100vh;
   display: grid;
   grid-template-columns: 350px auto;
@@ -26,31 +25,33 @@
   grid-template-areas: 
   "userinfo"
   "lyricstab";
-  align-content: start;
+  align-content: space-between;
   grid-template-rows: 30% auto;
   .user-info {
     grid-row: userinfo;
-    height: 200px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     .avatar-pic {
-      align-self: center;
       margin-top: 20px;
       img {
-        height: 200px;
-        width: 200px;
-      }
-      .username {
-        justify-self: center;
+        height: 150px;
+        width: 150px;
       }
     }
+    .username {
+      margin-top: 8px;
+    }
   }
+////////////////
+// lyrics menu //
+////////////////
   .lyrics-menu {
     grid-row: lyricsmenu;
     justify-self: center;
     overflow-x: hidden;
     min-height: 200px;
-    max-height: 95%;
+    max-height: 100%;
     background-color: #fff;
     z-index: 1;
     width: 95%;
@@ -67,7 +68,7 @@
 }
 
 ////////////////
-// lyrics tab //
+// lyrics grid //
 ////////////////
 .lyrics-tab {
   grid-area: lyricstab;
@@ -82,16 +83,25 @@
     grid-template-areas:
     "title title"
     "lyrics notes";
+    ////////////////
+    // title tab //
+    ////////////////
     .title {
       grid-area: title;
       padding: 30px;
     }
+    ////////////////
+    // lyrics tab //
+    ////////////////
     .lyrics {
       grid-area: lyrics;
       padding: 30px;
       white-space: pre-wrap;
       text-align: center;
     }
+    ////////////////
+    // notes tab //
+    ////////////////
     .notes {
       grid-area: notes;
       padding: 30px;
@@ -104,9 +114,7 @@
   }
 }
 
-////////////////
-// notes tab //
-////////////////
+
 .footer {
   grid-area: footer;
 }
