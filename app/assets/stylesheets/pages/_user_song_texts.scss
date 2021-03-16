@@ -1,0 +1,125 @@
+.grid-container {
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 350px auto;
+  grid-template-rows: 4vh 93vh 3vh;
+  grid-template-areas: 
+  "navbar navbar"
+  "usertab lyricstab"
+  "footer footer";
+  background-color: #463f3a;
+}
+.navbar {
+  grid-area: navbar;
+  background-color: #463f3a;
+}
+
+////////////////
+// users tab //
+////////////////
+.user-tab {
+  grid-area: usertab;
+  background-color: #463f3a;
+  max-height: 100%;
+  display: grid;
+  grid-template-areas: 
+  "userinfo"
+  "lyricstab";
+  //align-content: start;
+  grid-template-rows: 30% auto;
+  .user-info {
+    grid-row: userinfo;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .avatar-pic {
+      margin-top: 20px;
+      img {
+        height: 150px;
+        width: 150px;
+      }
+    }
+    .username {
+      margin-top: 8px;
+    }
+  }
+////////////////
+// lyrics menu //
+////////////////
+  .lyrics-menu {
+    grid-row: lyricsmenu;
+    justify-self: center;
+    overflow-x: hidden;
+    min-height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    width: 100%;
+    .song-link {
+      justify-self: center;
+      text-align: center;   
+      margin-bottom: 20px;      
+    }
+    .delete-song {
+      transform: translateY(50%);
+      text-align: right !important;
+      float: left;
+      display: inline;
+      padding: 0;
+      border: 0;
+      margin-left: 3px;
+      background-color: transparent;
+    }
+  }
+}
+
+////////////////
+// lyrics grid //
+////////////////
+.lyrics-tab {
+  grid-area: lyricstab;
+  background-color: white;
+  overflow-x: hidden;
+  .lyrics-grid-wrapper {
+    display: grid;
+    align-items: start;
+    justify-content: center;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+    "title title"
+    "lyrics notes";
+    ////////////////
+    // title tab //
+    ////////////////
+    .title {
+      grid-area: title;
+      padding: 30px 30px 0 30px;
+    }
+    ////////////////
+    // lyrics tab //
+    ////////////////
+    .lyrics {
+      grid-area: lyrics;
+      padding: 0 30px 30px 30px;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+    ////////////////
+    // notes tab //
+    ////////////////
+    .notes {
+      grid-area: notes;
+      padding: 0 30px 30px 30px;
+      white-space: pre-wrap;
+    }
+  }
+  .edit-song {
+    position: fixed;
+    bottom: 15px;
+  }
+}
+
+
+.footer {
+  grid-area: footer;
+}

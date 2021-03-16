@@ -1,0 +1,149 @@
+<!--GRID wrapper-->
+<div class="grid-container wrapper">
+
+  <!-- new lyric Modal -->
+    <div class="modal fade" id="newLyricsModal" tabindex="-1" role="dialog" aria-labelledby="newLyricsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newLyricsModalLabel">New Lyrics</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for(@song_text) do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+            <div class="form-inputs">
+              <%= f.input :title %>
+              <%= f.input :rating %>
+              <%= f.input :content %>
+              <%= f.input :notes %>
+              <%= f.input :color_tag %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.button :submit %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+
+  <!--GRID -  navbar (holds more link to user and MyLy (to public index)) -->
+  <div class="navbar">
+    NAVBAR
+  </div>
+  
+  <!--GRID -  user-tab (flexbox)-->
+  <div class="user-tab">
+  
+    <!--user container (avatar, name) -->
+    <div class="user-info">
+      <div class="avatar-pic">
+        <%= image_tag  "https://thispersondoesnotexist.com/image" %>
+      </div>
+        <h3 class="username"><%= @user.email %></h3>
+    </div>
+
+    <!--lyrics menu -->
+    <div class="lyrics-menu">
+      <div class="each-lyric">
+        <ul class="lyrics-list nav nav-tabs flex-column" id="lyricsTab" role="tablist">
+          <li class="nav-item song-link">
+            <h2><a href="/song_texts/new" data-toggle="modal" data-target="#newLyricsModal" class="song-link">New</a></h2>
+          </li>
+          <% if @song_texts %>
+            <% @song_texts.each do |song_text| %>
+              <li class="nav-item">
+                <%= button_to "X" , song_text_path(song_text) , method: :delete , class:"delete-song", data: { confirm: "#{song_text.title} \n Are you sure you want to delete this song?"} %>
+                <h2 class="nav-link song-link <%= 'active' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false" style="background-color: <%= song_text.color_tag if song_text.color_tag%>"><%= "#{song_text.title}" %>
+                </h2>
+              </li> 
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!--GRID -  lyr-tab -->
+  <div class="lyrics-tab">
+    <div class="tab-content" id="LyricsTabContent">
+      <% if @song_texts %>
+        <% @song_texts.each do |song_text| %>
+
+            <!-- edit lyric Modal -->
+              <div class="modal fade" id="editLyricsModal-<%= song_text.id %>" tabindex="-1" role="dialog" aria-labelledby="editLyricsModalLabel-<%= song_text.id %>" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editLyricsModalLabel-<%= song_text.id %>"><%= song_text.title %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for(song_text) do |f| %>
+                      <%= f.error_notification %>
+                      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+                      <div class="form-inputs">
+                        <%= f.input :title %>
+                        <%= f.input :rating %>
+                        <%= f.input :content %>
+                        <%= f.input :notes %>
+                        <%= f.input :color_tag %>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <%= f.button :submit %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+          <div class="tab-pane fade <%= 'active show' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>"  role="tabpanel" aria-labelledby="song-<%= song_text.id %>-tab">
+          <!--GRID wrapper-->
+            <div class="lyrics-grid-wrapper">
+              <div class="title">
+                <h1><%= song_text.title %></h1>
+                <% if song_text.rating %>
+                  <%= song.text.rating %>
+                <% end %>
+              </div>
+
+              <div class="lyrics">
+                <p><%= song_text.content %></p>
+              </div>
+
+              <div class="notes">
+                <p><%= song_text.notes %></p>
+              </div>
+              <%#= link_to "Edit", edit_song_text_path(song_text) %>
+              <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" class="song-link">Edit</a></h2>
+            </div>
+            
+          </div>
+        <% end %>
+      <% end %>
+    
+    </div>
+  </div>
+
+  <!--  - Footer-->
+  <div class="footer">
+
+  </div>
+
+</div>
+

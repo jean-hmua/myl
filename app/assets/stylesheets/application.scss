@@ -1,3 +1,19 @@
+// PALLETE
+  //main colors
+    $dark-lava: #463F3A;
+    $middle-gray: #8A817C;
+    $pale-silver: #BCB8B1;
+    $alabaster: #F4F3EE;
+    $melon: #E0AFA0;
+  // tags colors
+    $pink: #ba3262;
+    $red: #73092e;
+    $blue: #18096E;
+    $green: #7E8C2B;
+    $purple: #5F42FF;
+    $orange: #94372B;
+    $yellow: #E39F20;
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,3 +27,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show";
+@import "pages/user_song_texts";
+
+// GLOBAL Settings
+.body-container {
+  background-color: $pale-silver;
+}
+
+.new-form-container {
+  height : 100vh;
+}

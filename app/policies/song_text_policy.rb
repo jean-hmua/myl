@@ -3,38 +3,42 @@ class SongTextPolicy < ApplicationPolicy
     def resolve
       scope.where(user: user)
     end
-
-    def index?
-      true
-      # record.user == user || user.admin?
-    end
-  
-    def show?
-      true
-      # record.user == user || user.admin?
-    end
-  
-    def create?
-      true
-      # record.user == user || user.admin?
-    end
-  
-    def new?
-      create?
-    end
-  
-    def update?
-      true
-      # record.user == user || user.admin?
-    end
-  
-    def edit?
-      update?
-    end
-  
-    def destroy?
-      true
-      # record.user == user || user.admin?
-    end
   end
+  
+  def index?
+    true
+ 
+  end
+
+  def show?
+    true
+
+  end
+
+  def create?
+    true
+
+  end
+
+  def new?
+    create?
+  end
+
+  def update?
+    true
+
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    true
+  end
+
+  def user_song_texts?
+    show?
+  end
+
 end
