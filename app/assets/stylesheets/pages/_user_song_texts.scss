@@ -20,6 +20,15 @@
     height: 50px;
     position: absolute;
   }
+  a {
+    color: white;
+    font-weight: bold;
+    margin-right: 16px;
+    &:hover {
+      text-decoration: none;
+      color: rgb(226, 192, 240)
+    }
+  }
 }
 
 ////////////////
@@ -30,27 +39,29 @@
   background-color: #463f3a;
   max-height: 100%;
   display: grid;
+  align-content: flex-start;
   grid-template-areas: 
   "userinfo"
   "lyricstab";
   //align-content: start;
-  grid-template-rows: 30% auto;
+  grid-template-rows: auto 0%;
   .user-info {
     grid-row: userinfo;
     display: flex;
     flex-direction: column;
     align-items: center;
     .avatar-pic {
-      margin-top: 20px;
+      margin-top: 32px;
       img {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
       }
     }
     .username {
       margin-top: 8px;
     }
   }
+
 ////////////////
 // lyrics menu //
 ////////////////
@@ -59,14 +70,40 @@
     justify-self: center;
     overflow-x: hidden;
     min-height: 100%;
-    background-color: #fff;
+    background-color: #463f3a;
     z-index: 1;
     width: 100%;
     .song-link {
       justify-self: center;
-      text-align: center;   
-      margin-bottom: 20px;      
+      margin-bottom: 8px;
+      padding-left: 16px;
+      color: white;
+      border: 2px solid transparent;
+      &:hover {
+        background-color: rgb(206, 146, 231) !important;
+        -webkit-box-shadow: 0px 6px 64px -10px #ff3eec88; 
+        box-shadow: 0px 12px 39px -10px #ff3eec88;
+        transition: 0.8s;
+      } 
+      &:nth-child(1) {
+        text-align: center;
+        padding-top: 16px;
+        padding-left: 0;
+        padding-bottom: 8px;
+        &:hover {
+          background-color: rgba(206, 146, 231, 0.219)!important;
+          -webkit-box-shadow: 0px 6px 64px -10px #ff3eec00; 
+          box-shadow: 0px 12px 39px -10px #ff3eec00;
+        } 
+      }   
     }
+    .active {
+      background-color: rgba(206, 146, 231, 0.644) !important;
+      border: 2px solid transparent;
+      -webkit-box-shadow: 0px 6px 64px -10px #ff3eec88; 
+      box-shadow: 0px 12px 39px -10px #ff3eec88;
+    }
+    
     .delete-song {
       transform: translateY(50%);
       text-align: right !important;
@@ -111,7 +148,7 @@
       padding: 0 30px 30px 30px;
       white-space: pre-wrap;
       text-align: center;
-      
+      border: 2px solid transparent;
     }
     ////////////////
     // notes tab //
