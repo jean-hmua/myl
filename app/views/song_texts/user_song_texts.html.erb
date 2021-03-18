@@ -68,7 +68,7 @@
                 
                 id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false" 
                 
-                <%  if song_text.color_tag != "" %> style="border: 2px solid  <%= song_text.color_tag %>;" <% else %>style="border: 2px solid transparent;"<% end %>>
+                <%  if song_text.color_tag != "" %> style="border-right: 6px solid  <%= song_text.color_tag %>;" <% else %>style="border-right: 6px solid transparent;"<% end %>>
                 <%= "#{song_text.title}" %>
                 <%#= raise %>
                 </h5>
@@ -129,7 +129,7 @@
                   <%= song.text.rating %>
                 <% end %>
               </div>
-              
+
               <!--
               <div class="lyrics" 
               <%  if song_text.color_tag != "" %>style="border: 2px solid <%=song_text.color_tag%>;"><% end %>
