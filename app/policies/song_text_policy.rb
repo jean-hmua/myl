@@ -1,12 +1,13 @@
 class SongTextPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
   
   def index?
-    true
+    scope.all
+    #.where(public? == true)
  
   end
 
@@ -38,7 +39,7 @@ class SongTextPolicy < ApplicationPolicy
   end
 
   def user_song_texts?
-    show?
+    @record.where(user_id: @user)
   end
 
 end
