@@ -9,9 +9,17 @@
   "footer footer";
   background-color: #463f3a;
 }
-.navbar {
+.user-navbar {
   grid-area: navbar;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   background-color: #463f3a;
+  padding: 5px;
+  img {
+    height: 50px;
+    position: absolute;
+  }
 }
 
 ////////////////
