@@ -3,6 +3,7 @@
   background-color: #463f3a;
   height: 32px;
 }
+
 .home-nav-list {
   display: flex;
   list-style: none;
@@ -13,6 +14,9 @@
   }
   li:nth-of-type(2) {
     margin-left: 16px;
+  }
+  a {
+    color: white;
   }
 }
 .home-bkg {
@@ -38,16 +42,23 @@
 
 .btn-home {
   margin-top: 10px;
-  background-color: rgb(29, 107, 253);
+  border: 4px solid #463f3a ;
+  background-color: transparent;
   padding: 20px 50px;
   text-decoration: none;
   text-align: center;
-  color: white;
+  color: #463f3a;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 8px;
   &:hover {
-    background-color: rgb(250, 77, 192);
-    color: white;
+    border: 4px solid rgb(8, 33, 80);
+    //background-color: rgb(250, 77, 192);
+    -webkit-box-shadow: 0px 12px 39px -10px #FF3EED; 
+    box-shadow: 0px 12px 39px -10px #FF3EED;
+    color: rgb(76, 10, 102);
     text-decoration: none;
-    box-shadow: 0px 10px 13px -7px #00000031, 5px 5px 15px 5px rgba(0,0,0,0);
+    //box-shadow: 0px 10px 13px -7px #00000031, 5px 5px 15px 5px rgba(0,0,0,0);
     transition: 0.8s;
   }
 }
