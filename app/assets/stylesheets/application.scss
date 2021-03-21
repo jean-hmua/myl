@@ -52,7 +52,7 @@ a {
   }
 }
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
   background-color: $dark-lava;
 }
 ::-webkit-scrollbar-thumb {
@@ -60,10 +60,9 @@ a {
   box-shadow: $middle-gray ;
   -webkit-box-shadow: $middle-gray;
   background-color: $middle-gray;
-  border: 1px solid rgba(29, 253, 186, 0.262);
+  border: 1px solid rgba(253, 231, 29, 0.158);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: $muted-home-pink;
   transition: 0.5s;
-
 }
