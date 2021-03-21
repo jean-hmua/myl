@@ -7,18 +7,23 @@
   "navbar navbar"
   "usertab lyricstab"
   "footer footer";
-  background-color: #463f3a;
+  background-color: $dark-lava;
 }
 .user-navbar {
   grid-area: navbar;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: #463f3a;
+  background-color: $dark-lava;
   padding: 5px;
   img {
-    height: 50px;
+    height: 60px;
     position: absolute;
+    margin-right: 16px;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
   }
   a {
     color: white;
@@ -36,7 +41,7 @@
 ////////////////
 .user-tab {
   grid-area: usertab;
-  background-color: #463f3a;
+  background-color: $dark-lava;
   max-height: 100%;
   display: grid;
   align-content: flex-start;
@@ -70,9 +75,10 @@
     justify-self: center;
     overflow-x: hidden;
     min-height: 100%;
-    background-color: #463f3a;
+    background-color: $dark-lava;
     z-index: 1;
     width: 100%;
+    // SONG LINK
     .song-link {
       justify-self: center;
       margin-bottom: 8px;
@@ -80,9 +86,9 @@
       color: white;
       border: 2px solid transparent;
       &:hover {
-        background-color: rgb(206, 146, 231) !important;
-        -webkit-box-shadow: 0px 6px 64px -10px #ff3eec88; 
-        box-shadow: 0px 12px 39px -10px #ff3eec88;
+        background-color: $home-pink !important;
+        -webkit-box-shadow: 0px 6px 64px -10px $darker-home-pink; 
+        box-shadow: 0px 12px 39px -10px $darker-home-pink;
         transition: 0.8s;
       } 
       &:nth-child(1) {
@@ -100,10 +106,10 @@
     .active {
       background-color: rgba(206, 146, 231, 0.644) !important;
       border: 2px solid transparent;
-      -webkit-box-shadow: 0px 6px 64px -10px #ff3eec88; 
-      box-shadow: 0px 12px 39px -10px #ff3eec88;
+      -webkit-box-shadow: 0px 6px 64px -10px $darker-home-pink; 
+      box-shadow: 0px 12px 39px -10px $darker-home-pink;
     }
-    
+    // DELETE BUTTON
     .delete-song {
       transform: translateY(50%);
       text-align: right !important;
@@ -114,6 +120,8 @@
       margin-left: 3px;
       background-color: transparent;
     }
+    // SCROLLBAR
+
   }
 }
 

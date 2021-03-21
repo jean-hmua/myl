@@ -4,7 +4,9 @@
     $middle-gray: #8A817C;
     $pale-silver: #BCB8B1;
     $alabaster: #F4F3EE;
-    $melon: #E0AFA0;
+    $home-pink: rgb(206, 146, 231);
+    $muted-home-pink: rgb(165, 137, 177);
+    $darker-home-pink: #ff3eec88;
   // tags colors
     $pink: #ba3262;
     $red: #73092e;
@@ -45,4 +47,20 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: $dark-lava;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: $middle-gray ;
+  -webkit-box-shadow: $middle-gray;
+  background-color: $middle-gray;
+  border: 1px solid rgba(29, 253, 186, 0.262);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $muted-home-pink;
+  transition: 0.5s;
+
 }
