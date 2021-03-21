@@ -235,6 +235,12 @@
   h1 {
     margin-bottom: 60px;
   }
+  img {
+    &:hover {
+      transition: 2s;
+      height: 105%;
+    }
+  }
 }
 .footer {
   grid-area: footer;
