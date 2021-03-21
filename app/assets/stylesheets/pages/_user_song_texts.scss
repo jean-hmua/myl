@@ -150,30 +150,49 @@
   background-color: white;
   overflow-x: hidden;
   .lyrics-grid-wrapper {
+    font-weight: bold;
     display: grid;
     align-items: start;
     justify-content: center;
     grid-template-columns: 70% 30%;
-    grid-template-rows: auto auto;
     grid-template-areas:
     "title title"
-    "lyrics notes";
+    "lyrics-wrapper lyrics-wrapper";
     ////////////////
     // title tab //
     ////////////////
     .title {
       grid-area: title;
-      padding: 30px 30px 0 30px;
+      padding: 5px 30px 0 30px;
+      text-align: left;
+      background-color: $dark-lava;
+      color: white;
+      .title-container {
+        display: flex;
+        flex-grow: 1;
+      }
     }
+
     ////////////////
     // lyrics tab //
     ////////////////
+    .lyrics-wrapper {
+      grid-area: lyrics-wrapper;
+      display: grid;
+      grid-template-areas: 
+      "lyrics notes";
+      grid-template-rows: auto auto;
+      grid-auto-columns: 70% 30%;
+    }
     .lyrics {
       grid-area: lyrics;
       padding: 0 30px 30px 30px;
       white-space: pre-wrap;
       text-align: center;
-      border: 2px solid transparent;
+      line-height: 3;
+      min-height: 100vh;
+      background-color: white;
+      font-size: larger;
     }
     ////////////////
     // notes tab //
@@ -182,11 +201,16 @@
       grid-area: notes;
       padding: 0 30px 30px 30px;
       white-space: pre-wrap;
+      min-height: 100vh;
+      color: white;
+      margin: 8px 0px 8px 4px;
+      
     }
   }
   .edit-song {
     position: fixed;
     bottom: 15px;
+    margin-left: 6px;
   }
 }
 

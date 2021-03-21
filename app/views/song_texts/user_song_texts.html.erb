@@ -122,27 +122,32 @@
 
           <div class="tab-pane fade <%= 'active show' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>"  role="tabpanel" aria-labelledby="song-<%= song_text.id %>-tab">
           <!--GRID wrapper-->
-            <div class="lyrics-grid-wrapper">
-              <div class="title">
-                <h1><%= song_text.title %></h1>
-                <% if song_text.rating %>
-                  <%= song_text.rating %>
-                <% end %>
+            <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; ">
+              <div class="title" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                <div class="title-container">
+                  <h1><%= song_text.title %></h1>
+                  <% if song_text.rating %>
+                    <%= song_text.rating %>
+                  <% end %>
+                </div>
               </div>
 
               <!--
               <div class="lyrics" 
-              <%  if song_text.color_tag != "" %>style="border: 2px solid <%=song_text.color_tag%>;"><% end %>
+              <%  if song_text.color_tag != "" %>style="border: solid <%=song_text.color_tag%>;"><% end %>
               -->
-              <div class="lyrics">
-                <p><%= song_text.content %></p>
-              </div>
+              <div class="lyrics-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                
+                <div class="lyrics" style="border-left: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                  <p><%= song_text.content %></p>
+                </div>
 
-              <div class="notes">
-                <p><%= song_text.notes %></p>
+                <div class="notes" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>;">
+                  <p><%= song_text.notes %></p>
+                </div>
               </div>
               <%#= link_to "Edit", edit_song_text_path(song_text) %>
-              <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" class="song-link">Edit</a></h2>
+              <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" class="song-link" style="color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>">Edit</a></h2>
             </div>
             
           </div>
