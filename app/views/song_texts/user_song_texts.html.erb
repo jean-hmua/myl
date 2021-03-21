@@ -84,7 +84,7 @@
   <!--GRID -  lyr-tab -->
   <div class="lyrics-tab">
     <div class="tab-content" id="LyricsTabContent">
-              <div class="tab-pane fade active show">
+              <div class="tab-pane fade <%= 'active show' unless params[:song] %>">
                 <!--GRID wrapper-->
                   <div class="empty-tab">
                   <h1>Welcome <%= @user.email %>!</h1>
@@ -135,7 +135,7 @@
                 <div class="title-container">
                   <h1><%= song_text.title %></h1>
                   <% if song_text.rating %>
-                    <%= song_text.rating %>
+                    <%= "⭐" * song_text.rating  %>
                   <% end %>
                 </div>
               </div>
