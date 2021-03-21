@@ -31,7 +31,7 @@
     margin-right: 16px;
     &:hover {
       text-decoration: none;
-      color: rgb(226, 192, 240)
+      color: $less-home-pink;
     }
   }
 }
@@ -104,7 +104,7 @@
       }   
     }
     .active {
-      background-color: rgba(206, 146, 231, 0.644) !important;
+      background-color: $muted-transparent-home-pink !important;
       border: 2px solid transparent;
       -webkit-box-shadow: 0px 6px 64px -10px $darker-home-pink; 
       box-shadow: 0px 12px 39px -10px $darker-home-pink;
