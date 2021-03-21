@@ -208,13 +208,34 @@
     }
   }
   .edit-song {
+    
     position: fixed;
-    bottom: 15px;
-    margin-left: 6px;
+    bottom: 24px;
+    margin-left: 15px;
+    a {
+      padding: 8px 16px !important;
+      color: white !important;
+      font-size: 18px;
+      transition: 0.5s;
+      &:hover {
+        color: $muted-transparent-home-pink !important;
+      }
+    }
   }
 }
 
-
+.empty-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  background-color: #463F3A; 
+  height: 93vh;
+  h1 {
+    margin-bottom: 60px;
+  }
+}
 .footer {
   grid-area: footer;
 }

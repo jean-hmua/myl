@@ -84,6 +84,13 @@
   <!--GRID -  lyr-tab -->
   <div class="lyrics-tab">
     <div class="tab-content" id="LyricsTabContent">
+              <div class="tab-pane fade active show">
+                <!--GRID wrapper-->
+                  <div class="empty-tab">
+                  <h1>Welcome <%= @user.email %>!</h1>
+                  <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
+                </div>
+              </div>
       <% if @song_texts %>
         <% @song_texts.each do |song_text| %>
 
@@ -120,6 +127,7 @@
               </div>
 
 
+
           <div class="tab-pane fade <%= 'active show' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>"  role="tabpanel" aria-labelledby="song-<%= song_text.id %>-tab">
           <!--GRID wrapper-->
             <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; ">
@@ -147,7 +155,7 @@
                 </div>
               </div>
               <%#= link_to "Edit", edit_song_text_path(song_text) %>
-              <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" class="song-link" style="color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>">Edit</a></h2>
+              <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" style="color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;  background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">Edit</a></h2>
             </div>
             
           </div>
