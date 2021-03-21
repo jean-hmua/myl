@@ -48,8 +48,8 @@
     <div class="user-info">
       <div class="avatar-pic">
         <%= image_tag  "https://thispersondoesnotexist.com/image" %>
+        <h5 class="username"><%= @user.email %></h5>
       </div>
-        <h3 class="username"><%= @user.email %></h3>
     </div>
 
     <!--lyrics menu -->
@@ -57,7 +57,7 @@
       <div class="each-lyric">
         <ul class="lyrics-list nav  flex-column" id="lyricsTab" role="tablist">
           
-            <h2 data-toggle="modal" data-target="#newLyricsModal" class="song-link">New</h2>
+            <h2 data-toggle="modal" data-target="#newLyricsModal" class="song-link">+NEW+</h2>
           
           <% if @song_texts %>
             <% @song_texts.each do |song_text| %>
