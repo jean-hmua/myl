@@ -46,9 +46,12 @@
   
     <!--user container (avatar, name) -->
     <div class="user-info">
-      <p>upload</p>
-      <p>profile</p>
-      <p>new</p>
+      <div class="user-btn">
+        <p>upload </p>
+        <p>profile </p>
+        <p data-toggle="modal" data-target="#newLyricsModal" >new</p>
+      </div>
+      
       <div class="avatar-pic">
         <%= image_tag  "https://thispersondoesnotexist.com/image" %>
         <h5 class="username"><%= @user.email %></h5>
@@ -59,9 +62,6 @@
     <div class="lyrics-menu">
       <div class="each-lyric">
         <ul class="lyrics-list nav  flex-column" id="lyricsTab" role="tablist">
-          
-            <h2 data-toggle="modal" data-target="#newLyricsModal" class="song-link">+NEW+</h2>
-          
           <% if @song_texts %>
             <% @song_texts.each do |song_text| %>
               <li class="nav-item">
@@ -134,7 +134,7 @@
           <div class="tab-pane fade <%= 'active show' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>"  role="tabpanel" aria-labelledby="song-<%= song_text.id %>-tab">
           <!--GRID wrapper-->
             <div class="tab-bkg">
-              <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; ">
+              <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; opacity: 80%;">
                 <div class="title" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
                   <div class="title-container">
                     <h1><%= song_text.title %></h1>
