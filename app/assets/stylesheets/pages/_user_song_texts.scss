@@ -224,24 +224,49 @@
   }
 }
 
+.empty-tab-bkg {
+  background: url(https://media.giphy.com/media/3otOKCoCQyZXmnTHWg/giphy.gif);
+  height: 93vh;
+}
 .empty-tab {
+  background: linear-gradient(40deg, rgba(131, 58, 180, 0.634) 0%, rgba(29, 253, 186, 0.531) 74%, rgba(249, 69, 252, 0.613) 100%);
+  background-blend-mode:hard-light ;
+  background-size: 2000px 2000px;
+  animation: bg-animation 20s infinite alternate linear;
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   color: white;
-  background-color: #463F3A; 
   height: 93vh;
-  h1 {
-    margin-bottom: 60px;
-  }
+ 
   img {
-    &:hover {
-      transition: 2s;
-      height: 105%;
-    }
+    margin-top: 20%;
+    overflow: hidden;
+    position: fixed;
+    height: 300px;
+    animation: float-logo 20s linear infinite ;
   }
 }
 .footer {
   grid-area: footer;
+}
+
+@keyframes float-logo {
+  0% { transform: rotate(0deg) }
+  25% { transform: scale(1.1) rotate(30deg);
+        margin-left: 100px;
+        margin-top: 11%}
+  35% { transform: scale(1) rotate(10deg);
+        margin-left: 250px; }
+  50% { transform: scale(1.1) rotate(0deg); 
+        margin-top: 28%}
+  75% { transform: scale(1.2) rotate(-40deg);
+        margin-top: 15% }
+  80% { transform: scale(1) rotate(-20deg);
+        margin-left: -250px;
+        margin-top: 25%}
+  100%{ transform: rotate(0deg);
+        margin-top: 20%}
 }

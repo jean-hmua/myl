@@ -86,10 +86,14 @@
     <div class="tab-content" id="LyricsTabContent">
               <div class="tab-pane fade <%= 'active show' unless params[:song] %>">
                 <!--GRID wrapper-->
-                  <div class="empty-tab">
-                  <h1>Welcome <%= @user.email %>!</h1>
-                  <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
-                </div>
+                  
+                  <div class="empty-tab-bkg">
+                    <div class="empty-tab">
+                      <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
+                    </div>
+                  </div>
+                    
+                
               </div>
       <% if @song_texts %>
         <% @song_texts.each do |song_text| %>
