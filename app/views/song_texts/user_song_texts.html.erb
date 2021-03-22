@@ -46,6 +46,9 @@
   
     <!--user container (avatar, name) -->
     <div class="user-info">
+      <p>upload</p>
+      <p>profile</p>
+      <p>new</p>
       <div class="avatar-pic">
         <%= image_tag  "https://thispersondoesnotexist.com/image" %>
         <h5 class="username"><%= @user.email %></h5>
@@ -82,86 +85,85 @@
   </div>
 
   <!--GRID -  lyr-tab -->
-  <div class="lyrics-tab">
+  <div class="lyrics-tab empty-tab-bkg">
     <div class="tab-content" id="LyricsTabContent">
-              <div class="tab-pane fade <%= 'active show' unless params[:song] %>">
-                <!--GRID wrapper-->
-                  
-                  <div class="empty-tab-bkg">
-                    <div class="empty-tab">
-                      <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
-                    </div>
-                  </div>
-                    
-                
-              </div>
+      <!--Default Tab-->
+        <div class="tab-pane fade <%= 'active show' unless params[:song] %>">
+            <div class="empty-tab">
+              <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
+            </div>
+        </div>
+              
       <% if @song_texts %>
         <% @song_texts.each do |song_text| %>
 
-            <!-- edit lyric Modal -->
-              <div class="modal fade" id="editLyricsModal-<%= song_text.id %>" tabindex="-1" role="dialog" aria-labelledby="editLyricsModalLabel-<%= song_text.id %>" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="editLyricsModalLabel-<%= song_text.id %>"><%= song_text.title %></h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <%= simple_form_for(song_text) do |f| %>
-                      <%= f.error_notification %>
-                      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <!-- edit lyric Modal -->
+            <div class="modal fade" id="editLyricsModal-<%= song_text.id %>" tabindex="-1" role="dialog" aria-labelledby="editLyricsModalLabel-<%= song_text.id %>" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editLyricsModalLabel-<%= song_text.id %>"><%= song_text.title %></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for(song_text) do |f| %>
+                    <%= f.error_notification %>
+                    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-                      <div class="form-inputs">
-                        <%= f.input :title %>
-                        <%= f.input :rating %>
-                        <%= f.input :content %>
-                        <%= f.input :notes %>
-                        <%= f.input :color_tag %>
-                      </div>
+                    <div class="form-inputs">
+                      <%= f.input :title %>
+                      <%= f.input :rating %>
+                      <%= f.input :content %>
+                      <%= f.input :notes %>
+                      <%= f.input :color_tag %>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <%= f.button :submit %>
-                      <% end %>
-                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <%= f.button :submit %>
+                    <% end %>
                   </div>
                 </div>
               </div>
+            </div>
 
 
 
           <div class="tab-pane fade <%= 'active show' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>"  role="tabpanel" aria-labelledby="song-<%= song_text.id %>-tab">
           <!--GRID wrapper-->
-            <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; ">
-              <div class="title" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
-                <div class="title-container">
-                  <h1><%= song_text.title %></h1>
-                  <% if song_text.rating %>
-                    <%= "⭐" * song_text.rating  %>
-                  <% end %>
+            <div class="tab-bkg">
+              <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; ">
+                <div class="title" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                  <div class="title-container">
+                    <h1><%= song_text.title %></h1>
+                    <% if song_text.rating %>
+                      <p><%= "⭐" * song_text.rating  %></p>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              
 
-              <!--
-              <div class="lyrics" 
-              <%  if song_text.color_tag != "" %>style="border: solid <%=song_text.color_tag%>;"><% end %>
-              -->
-              <div class="lyrics-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
-                
-                <div class="lyrics" style="border-left: 16px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
-                  <p><%= song_text.content %></p>
-                </div>
+                <!--
+                <div class="lyrics" 
+                <%  if song_text.color_tag != "" %>style="border: solid <%=song_text.color_tag%>;"><% end %>
+                -->
+                <div class="lyrics-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                  
+                  <div class="lyrics">
+                    <p><%= song_text.content %></p>
+                  </div>
 
-                <div class="notes" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>;">
-                  <p><%= song_text.notes %></p>
+                  <div class="notes">
+                    <p><%= song_text.notes %></p>
+                  </div>
                 </div>
+                <%#= link_to "Edit", edit_song_text_path(song_text) %>
+                <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" style="color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;  background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">Edit</a></h2>
               </div>
-              <%#= link_to "Edit", edit_song_text_path(song_text) %>
-              <h2 class="edit-song"><a href="/song_texts/edit" data-toggle="modal" data-target="#editLyricsModal-<%= song_text.id %>" style="color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;  background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">Edit</a></h2>
-            </div>
             
+            </div>
           </div>
         <% end %>
       <% end %>
