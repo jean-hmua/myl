@@ -67,8 +67,7 @@ a {
   border-radius: 10px;
   box-shadow: $middle-gray ;
   -webkit-box-shadow: $middle-gray;
-  background-color: $middle-gray;
-  border: 1px solid rgba(253, 231, 29, 0.158);
+  background-color: rgba(206, 146, 231, 0.178);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: $muted-home-pink;
