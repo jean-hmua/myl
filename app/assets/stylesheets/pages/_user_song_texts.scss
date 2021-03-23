@@ -125,8 +125,10 @@
     grid-row: lyricsmenu;
     justify-self: center;
     overflow-x: hidden;
-    min-height: 100%;
-    background-color: $dark-lava;
+    min-height: 101.4%;
+    background: $dark-lava;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.513) 14%, rgba(70,63,58,1) 100%);
+    background-size: 300% 600%;
     z-index: 1;
     width: 100%;
     // SONG LINK
@@ -292,6 +294,7 @@
   flex-direction: column;
   color: white;
   height: 93vh;
+  overflow: hidden;
   img {
     margin-top: 20%;
     overflow: hidden;
@@ -302,6 +305,7 @@
 }
 .footer {
   grid-area: footer;
+  background-color: $dark-lava;
 }
 
 @keyframes float-logo {
