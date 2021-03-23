@@ -15,8 +15,6 @@
       <tr>
         
         <td><%= link_to "#{song_text.id} #{song_text.title}", song_text %></td>
-        <td><%= link_to 'Edit', edit_song_text_path(song_text) %></td>
-        <td><%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +22,3 @@
 
 <br>
 
-<%= link_to 'New Song Text', new_song_text_path %>

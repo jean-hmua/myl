@@ -4,7 +4,12 @@
     $middle-gray: #8A817C;
     $pale-silver: #BCB8B1;
     $alabaster: #F4F3EE;
-    $melon: #E0AFA0;
+    $home-pink: rgb(206, 146, 231);
+    $less-home-pink: rgb(226, 192, 240);
+    $muted-home-pink: rgb(165, 137, 177);
+    $muted-transparent-home-pink: rgba(206, 146, 231, 0.644);
+    $darker-transparent-home-pink: #ff3eec88;
+    
   // tags colors
     $pink: #ba3262;
     $red: #73092e;
@@ -39,4 +44,32 @@
 
 .new-form-container {
   height : 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Blinker', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+::-webkit-scrollbar {
+  width: 14px;
+  background-color: $dark-lava;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: $middle-gray ;
+  -webkit-box-shadow: $middle-gray;
+  background-color: rgba(206, 146, 231, 0.178);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $muted-home-pink;
+  transition: 0.5s;
 }

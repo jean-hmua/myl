@@ -1,6 +1,6 @@
 .home-navbar {
   flex-grow: 1;
-  background-color: #463f3a;
+  background-color: $dark-lava;
   height: 32px;
 }
 
@@ -37,6 +37,7 @@
     display: grid;
     place-items: center;
   }
+
 }
 
 @keyframes bg-animation {
@@ -52,15 +53,16 @@
   padding: 20px 50px;
   text-decoration: none;
   text-align: center;
-  color: #463f3a;
   font-weight: bold;
   margin-bottom: 8px;
   transition: 0.5s;
   &:first-of-type {
-    background-color: rgb(226, 192, 240);
+    background-color: $dark-lava;
+    color: white;
   }
   &:nth-of-type(2) {
-    border: 2px solid #463f3a ;
+    border: 2px solid $dark-lava ;
+    color: $dark-lava;
   }
   &:hover {
     background-color: rgb(206, 146, 231);
@@ -68,10 +70,14 @@
     -webkit-box-shadow: 0px 6px 64px -10px #ff3eec88; 
     box-shadow: 0px 12px 39px -10px #ff3eec88;
     text-decoration: none;
-    color: #463f3a;
+    // color: $dark-lava;
   }
 }
 
 .home-content {
   display: grid;
+}
+.logo {
+  height: 400px;
+  margin-bottom: 20px;
 }

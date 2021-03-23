@@ -1,17 +1,39 @@
 .grid-container {
-  max-height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-columns: 350px auto;
-  grid-template-rows: 4vh 93vh 3vh;
+  grid-template-rows: 45px 92vh 25px;
   grid-template-areas: 
   "navbar navbar"
   "usertab lyricstab"
   "footer footer";
-  background-color: #463f3a;
+  background-color: $dark-lava;
 }
-.navbar {
+.user-navbar {
   grid-area: navbar;
-  background-color: #463f3a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: $dark-lava;
+  padding: 5px;
+  img {
+    height: 60px;
+    position: absolute;
+    margin-right: 16px;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
+  }
+  a {
+    color: white;
+    font-weight: bold;
+    margin-right: 16px;
+    &:hover {
+      text-decoration: none;
+      color: $less-home-pink;
+    }
+  }
 }
 
 ////////////////
@@ -19,30 +41,83 @@
 ////////////////
 .user-tab {
   grid-area: usertab;
-  background-color: #463f3a;
+  background-color: $dark-lava;
   max-height: 100%;
   display: grid;
+  align-content: flex-start;
   grid-template-areas: 
   "userinfo"
   "lyricstab";
   //align-content: start;
-  grid-template-rows: 30% auto;
+  grid-template-rows: auto auto;
+  height: auto;
   .user-info {
     grid-row: userinfo;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color:  $muted-home-pink;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    background: linear-gradient(0deg, rgba(0,0,0,0.4821564749385534) 1%, rgba(255,255,255,0) 100%), url(https://source.unsplash.com/1600x900);
+    background-size: contain;
+    background-size: 100%;
+    transition: 1s ease;
+    &:before {
+      filter: blur(1px)
+    }
+    &:hover {
+        padding-bottom: 18px;
+      ;
+      p {
+        display: block;
+        opacity: 100%;
+        transition: 1.5s ease;
+      }
+    }
     .avatar-pic {
-      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 16px 0;
       img {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
       }
     }
     .username {
-      margin-top: 8px;
+      margin: 4px 0;
+      color: white;
+      font-weight: bold;
+      padding: 5px 15%;
     }
+    p {
+      font-weight: 100;
+      text-align: center;
+      max-width: 80px;
+      min-width: 80px;
+      //border: 1px solid transparent;
+      padding: 5px 10px;
+      background-color: rgba(255, 255, 255, 0.393);
+      opacity: 0;
+      border-radius: 3px;
+      backdrop-filter: blur(2px);
+      &:hover {
+        background-color: rgba(206, 146, 231, 0.351);
+        transition: 0.5s;
+        
+        //border: 1px solid rgba(206, 146, 231, 0.644);
+      }
+    }
+    
   }
+  .user-btn {
+    text-align: center;
+    position: fixed;
+    display: flex;
+    width: 350px;
+    justify-content: space-around;
+    line-height: 11px;
+    margin-top: 160px;
+    transition: 0.5s;
+  }
+
 ////////////////
 // lyrics menu //
 ////////////////
@@ -51,14 +126,34 @@
     justify-self: center;
     overflow-x: hidden;
     min-height: 100%;
-    background-color: #fff;
+    background-color: $dark-lava;
     z-index: 1;
     width: 100%;
+    // SONG LINK
     .song-link {
       justify-self: center;
-      text-align: center;   
-      margin-bottom: 20px;      
+      margin-bottom: 8px;
+      padding-left: 16px;
+      color: $alabaster;
+      border: 2px solid transparent;
+      font-weight: 100;
+      &:hover {
+        color: white;
+        background-color: $home-pink !important;
+        -webkit-box-shadow: 0px 6px 64px -10px $darker-transparent-home-pink; 
+        box-shadow: 0px 12px 39px -10px $darker-transparent-home-pink;
+        transition: 0.8s;
+      } 
     }
+    .active {
+      background-color: $muted-transparent-home-pink !important;
+      border: 2px solid transparent;
+      -webkit-box-shadow: 0px 6px 64px -10px $darker-transparent-home-pink; 
+      box-shadow: 0px 12px 39px -10px $darker-transparent-home-pink;
+      color: white;
+      font-weight: 400;
+    }
+    // DELETE BUTTON
     .delete-song {
       transform: translateY(50%);
       text-align: right !important;
@@ -69,6 +164,8 @@
       margin-left: 3px;
       background-color: transparent;
     }
+    // SCROLLBAR
+
   }
 }
 
@@ -76,34 +173,71 @@
 // lyrics grid //
 ////////////////
 .lyrics-tab {
+  max-width: 100%;
   grid-area: lyricstab;
   background-color: white;
   overflow-x: hidden;
   .lyrics-grid-wrapper {
+    border-radius: 25px;
+    margin: 8px;
+    font-weight: bold;
     display: grid;
     align-items: start;
     justify-content: center;
     grid-template-columns: 70% 30%;
-    grid-template-rows: auto auto;
     grid-template-areas:
     "title title"
-    "lyrics notes";
+    "lyrics-wrapper lyrics-wrapper";
     ////////////////
     // title tab //
     ////////////////
     .title {
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      opacity: 80%;
       grid-area: title;
-      padding: 30px 30px 0 30px;
+      padding: 5px 30px 0 30px;
+      text-align: center;
+      color: white;
+      .title-container {
+        align-content: flex-start;
+        justify-content: space-between;
+        display: flex;
+        flex-grow: 1;
+      h1 {
+        margin-bottom: 0;
+        max-width: 71%;
+      }
+      p {
+        margin-left: auto;
+        margin-right: 50px;
+      }
+      }
     }
+
     ////////////////
     // lyrics tab //
     ////////////////
+
+    .lyrics-wrapper {
+      grid-area: lyrics-wrapper;
+      display: grid;
+      grid-template-areas: 
+      "lyrics notes";
+      grid-template-rows: auto auto;
+      grid-auto-columns: 70% 30%;
+    }
     .lyrics {
+      border-top-right-radius: 25px;
       grid-area: lyrics;
       padding: 0 30px 30px 30px;
-      white-space: pre-wrap;
+      white-space: pre-line;
       text-align: center;
-      
+      line-height: 3;
+      min-height: 100vh;
+      background-color: white;
+      font-size: larger;
+      opacity: 100% !important;
     }
     ////////////////
     // notes tab //
@@ -112,15 +246,78 @@
       grid-area: notes;
       padding: 0 30px 30px 30px;
       white-space: pre-wrap;
+      min-height: 100vh;
+      color: white;
+      margin: 8px 0px 8px 4px;
+      
     }
   }
   .edit-song {
+    
     position: fixed;
-    bottom: 15px;
+    bottom: 26px;
+    left: 22px;
+    a {
+      padding: 8px 16px !important;
+      color: white !important;
+      font-size: 18px;
+      transition: 0.5s;
+      &:hover {
+        color: $muted-transparent-home-pink !important;
+      }
+    }
   }
 }
-
-
+.tab-bkg {
+  padding: 8px;
+  background: linear-gradient(40deg, rgba(131, 58, 180, 0.634) 0%, rgba(29, 253, 186, 0.531) 74%, rgba(249, 69, 252, 0.613) 100%);
+  background-blend-mode: hard-light;
+  background-size: 150% 150%;
+  animation: bg-animation 20s infinite alternate linear;
+  backdrop-filter: blur(5px);
+}
+.empty-tab-bkg {
+  background: url(https://media.giphy.com/media/3otOKCoCQyZXmnTHWg/giphy.gif);
+  height: 93vh;
+}
+.empty-tab {
+  background: linear-gradient(40deg, rgba(131, 58, 180, 0.634) 0%, rgba(29, 253, 186, 0.531) 74%, rgba(249, 69, 252, 0.613) 100%);
+  background-blend-mode: hard-light ;
+  background-size: 150% 150%;
+  animation: bg-animation 20s infinite alternate linear;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: white;
+  height: 93vh;
+  img {
+    margin-top: 20%;
+    overflow: hidden;
+    position: fixed;
+    height: 300px;
+    animation: float-logo 20s linear infinite ;
+  }
+}
 .footer {
   grid-area: footer;
+}
+
+@keyframes float-logo {
+  0% { transform: rotate(0deg) }
+  25% { transform: scale(1.1) rotate(30deg);
+        margin-left: 100px;
+        margin-top: 11%}
+  35% { transform: scale(1) rotate(10deg);
+        margin-left: 250px; }
+  50% { transform: scale(1.1) rotate(0deg); 
+        margin-top: 28%}
+  75% { transform: scale(1.2) rotate(-40deg);
+        margin-top: 15% }
+  80% { transform: scale(1) rotate(-20deg);
+        margin-left: -250px;
+        margin-top: 25%}
+  100%{ transform: rotate(0deg);
+        margin-top: 20%}
 }
