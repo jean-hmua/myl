@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   include Pundit
   
   def configure_permitted_parameters
@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [ :username, :first_name, :last_name, :avatar, :bkg_pic])
 
   end
-
+  # https://stackoverflow.com/questions/27177068/devise-user-model-not-updating
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
