@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_161530) do
+ActiveRecord::Schema.define(version: 2021_03_23_185540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_161530) do
     t.bigint "song_texts_id"
     t.boolean "admin"
     t.string "username"
-    t.string "first_name"
     t.string "last_name"
+    t.string "first_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["song_texts_id"], name: "index_users_on_song_texts_id"

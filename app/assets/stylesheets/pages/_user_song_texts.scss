@@ -20,13 +20,14 @@
     height: 60px;
     position: absolute;
     margin-right: 16px;
+    z-index: 3;
     &:hover {
       transform: scale(1.1);
       transition: 0.2s;
     }
   }
   a {
-    
+
     color: white;
     font-weight: bold;
     margin-right: 16px;
@@ -41,6 +42,8 @@
 // users tab //
 ////////////////
 .user-tab {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.513) 14%, rgba(70,63,58,1) 100%);
+  background-size: 300% 600%;
   grid-area: usertab;
   background-color: $dark-lava;
   max-height: 100%;
@@ -55,20 +58,24 @@
   .user-info {
     grid-row: userinfo;
     background-color:  $muted-home-pink;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.1);
     background-size: contain;
     background-size: 100%;
-    transition: 1s ease;
-    &:before {
-      filter: blur(1px)
-    }
+    backdrop-filter: blur(1px);
+    transition: 0.5s ease;
     &:hover {
         padding-bottom: 18px;
-      ;
+      .user-btn {
+        transition: 1s ease !important;
+        margin-top: 160px;
+        z-index: 2;
+      }
       p {
+        color: white;
         display: block;
         opacity: 100%;
-        transition: 1.5s ease;
+        transition: 0.5s ease !important;
+        
       }
     }
     .avatar-pic {
@@ -88,6 +95,8 @@
       padding: 5px 15%;
     }
     p {
+      z-index: -1;
+      color: white !important;
       font-weight: 100;
       text-align: center;
       max-width: 80px;
@@ -104,6 +113,7 @@
         
         //border: 1px solid rgba(206, 146, 231, 0.644);
       }
+    a {    color: white; }
     }
     
   }
@@ -114,8 +124,9 @@
     width: 350px;
     justify-content: space-around;
     line-height: 11px;
-    margin-top: 160px;
+    margin-top: 165px;
     transition: 0.5s;
+    z-index: -1;
   }
 
 ////////////////
@@ -126,10 +137,8 @@
     justify-self: center;
     overflow-x: hidden;
     min-height: 101.4%;
-    background: $dark-lava;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.513) 14%, rgba(70,63,58,1) 100%);
-    background-size: 300% 600%;
-    z-index: 1;
+    // background: $dark-lava;
+    z-index: 5;
     width: 100%;
     // SONG LINK
     .song-link {
@@ -287,7 +296,7 @@
   background-blend-mode: hard-light ;
   background-size: 150% 150%;
   animation: bg-animation 20s infinite alternate linear;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
