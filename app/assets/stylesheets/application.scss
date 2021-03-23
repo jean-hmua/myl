@@ -37,8 +37,11 @@
 @import "components/sessions";
 
 // GLOBAL Settings
+.body {
+  background-color: $dark-lava;
+}
 .body-container {
-  background-color: $pale-silver;
+  background-color:  $dark-lava;
   height: 100vh;
 }
 
