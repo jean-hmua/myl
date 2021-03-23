@@ -189,8 +189,10 @@
   background-color: white;
   overflow-x: hidden;
   .lyrics-grid-wrapper {
+    -webkit-box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
     border-radius: 25px;
-    margin: 8px;
+    margin: 24px;
     font-weight: bold;
     display: grid;
     align-items: start;
@@ -266,8 +268,8 @@
   .edit-song {
     
     position: fixed;
-    bottom: 26px;
-    left: 22px;
+    bottom: 39px;
+    left: 34px;
     a {
       padding: 8px 16px !important;
       color: white !important;
