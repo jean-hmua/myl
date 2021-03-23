@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :song_texts
   has_one_attached :avatar, dependent: :destroy
+  has_one_attached :bkg_pic, dependent: :destroy
   
 end

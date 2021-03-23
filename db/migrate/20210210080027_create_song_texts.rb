@@ -3,7 +3,7 @@ class CreateSongTexts < ActiveRecord::Migration[6.0]
     create_table :song_texts do |t|
       t.string :title
       t.text :content
-      t.string :notes
+      t.text :notes
       t.string :color_tag
       t.integer :rating
 
