@@ -1,24 +1,18 @@
-<div class="body-container">
-        <%= link_to 'Back', song_texts_path %>
-  <div class="content-container container">
-    <div class="grid-container">
-      <div class="grid-content">
-      
-        <p>Song Texts from <%= @user.email %> id: <%= @user.id %> </p>
-        <% @song_texts.each do |song_text| %>
-          <%= link_to "#{song_text.id} #{song_text.title}", song_text %>
-          <%= link_to 'Edit', edit_song_text_path(song_text) %>
-        <%= link_to 'Destroy', song_text, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        
-      </div>
-      <div class="grid-content">
-        <%= link_to 'Edit', edit_song_text_path(@song_text) %> |
-      </div>
-      <div class="grid-content">
-      
+<div class="container" style="min-height: 100vh; background-color: #463F3A;">
+  <%= link_to 'Back', song_texts_path %>
+  <div class="title container" style="background-color: white; border: 5px solid <%= @song_text.color_tag if  @song_text.color_tag != "" %>;">
+    <h1><%= @song_text.title %></h1>
+    <div class="container">
+      <div class="" style="background-color: white; text-align: center;
+      white-space: pre-line;">
+      by <%= @song_text.user.username %><br>
+      email:<%= @song_text.user.email %><br><br>
+        <%= @song_text.content %><br>
+        <h1>notes</h1>
+        <%= @song_text.notes %><br>
       </div>
     </div>
   </div>
+  
 </div>
 
