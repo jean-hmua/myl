@@ -32,6 +32,7 @@ gem 'devise'
 gem 'pundit'
 gem 'faker'
 gem 'cloudinary', '~> 1.16.0'
+gem 'kaminari'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

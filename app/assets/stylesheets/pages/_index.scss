@@ -15,10 +15,12 @@
   "footer";
   .index-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    // table setup
     table {
-      margin: 100px;
+      margin: 100px 100px 20px 100px;
     }
     th {
       background-color: $muted-transparent-home-pink;
@@ -63,6 +65,9 @@
         border: 1px solid $dark-lava;
         border-collapse: collapse;
       }
+    }
+    .pag {
+      margin: 20px 0;
     }
   }
   .modal-body {

@@ -3,7 +3,7 @@ class SongTextsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @song_texts = policy_scope(SongText).order(created_at: :desc)
+    @song_texts = policy_scope(SongText).order(created_at: :desc).page params[:page]
   end
 
   def user_song_texts
