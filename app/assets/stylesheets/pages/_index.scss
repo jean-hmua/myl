@@ -90,18 +90,18 @@
   }
   .modal {
     margin-top: 1.5% ;
-  }
-  .modal-body {
-    max-height: 70vh;
-    overflow-x: auto !important;
-    white-space: pre-line;
-    background-color: white;
-    text-align: center;
-    white-space: pre-line;
-  }
-  .modal-content {
-    width: 800px;
-    margin: 0 -160px;
+    .modal-body {
+      max-height: 70vh;
+      overflow-x: auto !important;
+      white-space: pre-line;
+      background-color: white;
+      text-align: center;
+      white-space: pre-line;
+    }
+    .modal-content {
+      width: 800px;
+      margin: 0 -160px;
+    }
   }
   .index-footer {
     background: linear-gradient(180deg, rgba(255,255,255,0) 14%, rgba(70,63,58,1) 100%) !important;

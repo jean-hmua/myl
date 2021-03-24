@@ -40,7 +40,19 @@
 
   <!--GRID -  navbar (holds more link to user and MyLy (to public index)) -->
   <div class="user-navbar">
-    <%= link_to image_tag("tmp/Asset-3d.svg"), song_texts_path, class:"logo-nav"  %>
+    <!--Dropdown-->
+        <div class="dropdown show">
+          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag("tmp/Asset-3d.svg")%>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            
+            <%= link_to "Explore", song_texts_path, class:"dropdown-item"  %>
+            <%= link_to "Your Lyrics", user_song_texts_path, class:"dropdown-item"  %>
+            <a class="dropdown-item" href="#">About Us</a>
+          </div>
+        </div>
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
   
