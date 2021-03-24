@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 350px auto;
-  grid-template-rows: 45px 92vh 25px;
+  grid-template-rows: 27px 92vh 25px;
   grid-template-areas: 
   "navbar navbar"
   "usertab lyricstab"
@@ -20,13 +20,14 @@
     height: 60px;
     position: absolute;
     margin-right: 16px;
+    z-index: 3;
     &:hover {
       transform: scale(1.1);
       transition: 0.2s;
     }
   }
   a {
-    
+
     color: white;
     font-weight: bold;
     margin-right: 16px;
@@ -41,6 +42,8 @@
 // users tab //
 ////////////////
 .user-tab {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.513) 14%, rgba(70,63,58,1) 100%);
+  background-size: 300% 600%;
   grid-area: usertab;
   background-color: $dark-lava;
   max-height: 100%;
@@ -55,20 +58,24 @@
   .user-info {
     grid-row: userinfo;
     background-color:  $muted-home-pink;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.1);
     background-size: contain;
     background-size: 100%;
-    transition: 1s ease;
-    &:before {
-      filter: blur(1px)
-    }
+    backdrop-filter: blur(1px);
+    transition: 0.5s ease;
     &:hover {
         padding-bottom: 18px;
-      ;
+      .user-btn {
+        transition: 1s ease !important;
+        margin-top: 160px;
+        z-index: 2;
+      }
       p {
+        color: white;
         display: block;
         opacity: 100%;
-        transition: 1.5s ease;
+        transition: 0.5s ease !important;
+        
       }
     }
     .avatar-pic {
@@ -88,15 +95,16 @@
       padding: 5px 15%;
     }
     p {
+      z-index: -1;
+      color: white !important;
       font-weight: 100;
       text-align: center;
-      max-width: 80px;
-      min-width: 80px;
+      max-width: 175px;
+      min-width: 175px;
       //border: 1px solid transparent;
       padding: 5px 10px;
       background-color: rgba(255, 255, 255, 0.393);
       opacity: 0;
-      border-radius: 3px;
       backdrop-filter: blur(2px);
       &:hover {
         background-color: rgba(206, 146, 231, 0.351);
@@ -104,6 +112,7 @@
         
         //border: 1px solid rgba(206, 146, 231, 0.644);
       }
+    a {    color: white; }
     }
     
   }
@@ -112,10 +121,11 @@
     position: fixed;
     display: flex;
     width: 350px;
-    justify-content: space-around;
+    justify-content: center;
     line-height: 11px;
-    margin-top: 160px;
+    margin-top: 165px;
     transition: 0.5s;
+    z-index: -1;
   }
 
 ////////////////
@@ -126,11 +136,10 @@
     justify-self: center;
     overflow-x: hidden;
     min-height: 101.4%;
-    background: $dark-lava;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.513) 14%, rgba(70,63,58,1) 100%);
-    background-size: 300% 600%;
-    z-index: 1;
+    // background: $dark-lava;
+    z-index: 5;
     width: 100%;
+    // lyrics menu
     // SONG LINK
     .song-link {
       justify-self: center;
@@ -180,8 +189,10 @@
   background-color: white;
   overflow-x: hidden;
   .lyrics-grid-wrapper {
+    -webkit-box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
     border-radius: 25px;
-    margin: 8px;
+    margin: 24px;
     font-weight: bold;
     display: grid;
     align-items: start;
@@ -257,8 +268,8 @@
   .edit-song {
     
     position: fixed;
-    bottom: 26px;
-    left: 22px;
+    bottom: 39px;
+    left: 34px;
     a {
       padding: 8px 16px !important;
       color: white !important;
@@ -287,13 +298,13 @@
   background-blend-mode: hard-light ;
   background-size: 150% 150%;
   animation: bg-animation 20s infinite alternate linear;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   color: white;
-  height: 93vh;
+  height: 93.1vh;
   overflow: hidden;
   img {
     margin-top: 20%;
@@ -305,7 +316,7 @@
 }
 .footer {
   grid-area: footer;
-  background-color: $dark-lava;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 14%, rgba(70,63,58,1) 100%);
 }
 
 @keyframes float-logo {

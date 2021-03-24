@@ -1,2 +1,109 @@
 // Import page-specific CSS files here.
 @import "home";
+.index-bkg {
+  background: linear-gradient(40deg, rgba(131, 58, 180, 0.986) 0%, rgb(29, 253, 186) 74%, rgba(249, 69, 252, 0.986) 100%);
+    background-size: 6000px 6000px;
+    background-blend-mode: hue;
+    animation: bg-animation 20s infinite alternate linear;
+}
+.index-grid-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 27px auto 25px;
+  grid-template-areas: 
+  "navbar"
+  "index-content"
+  "footer";
+  .index-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // table setup
+    table {
+      margin: 100px 100px 20px 100px;
+      max-width: 830px;
+      -webkit-box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
+      box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
+      th {
+        background-color: $dark-lava;
+        text-align: center;
+        color: white;
+        &:first-of-type {
+          background-color:  $dark-lava;
+        }
+      }
+      tr { 
+        transition: 0.2s;
+        background-color: rgba(255, 255, 255, 0.575);
+        &:hover {
+          background-color: $less-home-pink;
+          transform: scale(1.01);
+          transition: 0.2s;
+          -webkit-box-shadow: 0px 6px 64px -10px #881c7d88; 
+          box-shadow: 0px 12px 39px -10px #83217988;
+          border: 1px solid #83217988;
+        }
+        p {
+          margin: 5px !important;
+        }
+      }
+      tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.8);
+        &:hover {
+          background-color: $less-home-pink;        
+        }
+      }
+      .table-title {
+        width: 60%;
+      }
+      .table-ratings {
+        width: 60px;
+        background-color: $dark-lava;
+      }
+      td, th {
+        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4) {
+          border: 1px solid $dark-lava;
+          border-collapse: collapse;
+        }
+      }
+    }
+    
+    .pag {
+      margin: 20px 0;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      a {
+        color: white !important;
+        margin: 0 8px;
+        &:hover {
+          color: $less-home-pink !important ;
+        }
+      }
+      .active {
+        color: $dark-lava !important;
+        font-weight: bolder;
+        bottom: 2px;
+      }
+    }
+  }
+  .modal {
+    margin-top: 1.5% ;
+    .modal-body {
+      max-height: 70vh;
+      overflow-x: auto !important;
+      white-space: pre-line;
+      background-color: white;
+      text-align: center;
+      white-space: pre-line;
+    }
+    .modal-content {
+      width: 800px;
+      margin: 0 -160px;
+    }
+  }
+  .index-footer {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 14%, rgba(70,63,58,1) 100%) !important;
+  }
+}
