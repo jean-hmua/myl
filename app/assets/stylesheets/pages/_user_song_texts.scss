@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 350px auto;
-  grid-template-rows: 45px 92vh 25px;
+  grid-template-rows: 27px 92vh 25px;
   grid-template-areas: 
   "navbar navbar"
   "usertab lyricstab"
@@ -316,7 +316,7 @@
 }
 .footer {
   grid-area: footer;
-  background-color: #66625E;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 14%, rgba(70,63,58,1) 100%);
 }
 
 @keyframes float-logo {
