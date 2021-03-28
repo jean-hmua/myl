@@ -1,22 +1,7 @@
 <div class="index-bkg">
   <div class="index-grid-container">
     <div class="user-navbar">
-      <!--Dropdown-->
-        <div class="dropdown show">
-          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag("tmp/Asset-3d.svg")%>
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            
-            <%= link_to "Explore", song_texts_path, class:"dropdown-item"  %>
-            <%= link_to "Your Lyrics", user_song_texts_path, class:"dropdown-item"  %>
-            <a class="dropdown-item" href="#">About Us</a>
-          </div>
-        </div>
-
-      <%#= link_to image_tag("tmp/Asset-3d.svg"), song_texts_path, class:"logo-nav"  %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= render "shared/navbar" %>
     </div>
     <div class="index-content">
       <table>
@@ -49,6 +34,7 @@
               </div>
             </div>
           </div>
+        <!-- TABLE -->
           <tr>
             <td style="background-color: <% if song_text.color_tag != "" %> <%= song_text.color_tag %><% else %> #463F3A <%end%>;">
               
@@ -57,7 +43,7 @@
               <p>  <%= song_text.title %></p>
             </td>
             <td>
-              <p>  <%= (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email) %></p>
+              <a href="<%= profile_path(song_text.user.id) %>"><%= (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email) %></a>
             </td>
             <td class="table-ratings">
               <p ><%= "⭐" * song_text.rating if song_text.rating %><%= "" if song_text.ratable == true %></p>

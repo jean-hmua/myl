@@ -16,7 +16,7 @@ class SongTextsController < ApplicationController
 
   def show
     @user = current_user
-    @song_texts = policy_scope(SongText).order(created_at: :desc)
+    @song_text = SongText.find(params[:id])
   end
 
   def new

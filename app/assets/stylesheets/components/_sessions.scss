@@ -1,12 +1,12 @@
 .sessions-main-container {
   width: 100%;
-  min-height: 145vh;
   background: linear-gradient(40deg, rgba(131, 58, 180, 0.986) 0%, rgb(29, 253, 186) 74%, rgba(249, 69, 252, 0.986) 100%);
   background-size: 6000px 6000px;
   background-blend-mode: hue;
   animation: bg-animation 20s infinite alternate linear;
   display: grid;
   place-items: center;
+  min-height: 100vh;
 }
 .sessions-content-container {
   display: flex;
@@ -22,6 +22,8 @@
   min-height: 50%;
   padding: 24px 24px 0 24px;
   justify-content:space-around;
+  margin-bottom: 80px;
+  
   .session-form {
     text-align: left;
   }
@@ -32,24 +34,26 @@
   .sessions-btn-main{
     background-color: #463f3a;
     color: white;
+    transition: 0.5s;
     &:hover {
-      -webkit-box-shadow: 0px 12px 39px -10px #FF3EED; 
-      box-shadow: 0px 12px 39px -10px #FF3EED;
+      background-color: $muted-transparent-home-pink !important;
       text-decoration: none;
+
     }
   }
   .extra-btn {
     position: relative;
     display: flex;
-    justify-content: flex-end;
     bottom: 8px;
     font-weight: bold;
+    margin: 8px 0px 8px -21px;
     .sessions-btn {
       margin-left: 24px;
       color: #463f3a;
       &:hover {
         color: rgb(226, 192, 240);
         text-decoration: none;
+        transition: 0.5s;
       }
     }
   }

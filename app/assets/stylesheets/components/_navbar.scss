@@ -1,12 +1,63 @@
-.navbar-myly {
+.page-navbar {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  background: white;
+  background-color: $dark-lava;
+  flex: 1;
+  height: 32px;
+  img {
+    height: 60px;
+    position: absolute;
+    margin-right: 16px;
+    z-index: 3;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
+  }
+  a {
+    color: white;
+    &:hover {
+      text-decoration: none;
+      color: $less-home-pink;
+    }
+  }
 }
 
-.navbar-myly .navbar-collapse {
-  flex-grow: 0;
+.home-nav-list {
+  display: flex;
+  margin-right: 8px;
+  list-style: none;
+  padding: 4px 0 0 0 ;
+  flex-direction: row;
+  li {
+    margin: 0 8px;
+  }
+}
+.user-navbar {
+  grid-area: navbar;
 }
 
-.navbar-myly .navbar-brand img {
-  width: 40px;
+.dropdown-menu {
+  background: linear-gradient(40deg, rgba(131, 58, 180, 0.986) 0%, rgb(29, 253, 186) 74%, rgba(249, 69, 252, 0.986) 100%);
+  background-size: 1000px 1000px;
+  animation: bg-animation 20s infinite alternate linear;
+  top: 16px !important;
+  left: 51px !important;
+  a {    
+    justify-self: center;
+    margin-bottom: 8px;
+    padding-left: 16px;
+    color: $alabaster;
+    border: 2px solid transparent;
+    font-weight: 100;
+    &:hover {
+      color: white;
+      background-color: $home-pink !important;
+      -webkit-box-shadow: 0px 6px 64px -10px $darker-transparent-home-pink; 
+      box-shadow: 0px 12px 39px -10px $darker-transparent-home-pink;
+      transition: 0.2s;
+    }
+  }
 }

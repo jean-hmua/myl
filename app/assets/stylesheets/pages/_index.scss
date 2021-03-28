@@ -9,7 +9,7 @@
 .index-grid-container {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 27px auto 25px;
+  grid-template-rows: 32px auto 20px;
   grid-template-areas: 
   "navbar"
   "index-content"
@@ -21,6 +21,7 @@
     align-items: center;
     // table setup
     table {
+      
       margin: 100px 100px 20px 100px;
       max-width: 830px;
       -webkit-box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
@@ -33,7 +34,7 @@
           background-color:  $dark-lava;
         }
       }
-      tr { 
+      tr:not(:first-child) { 
         transition: 0.2s;
         background-color: rgba(255, 255, 255, 0.575);
         &:hover {
@@ -56,10 +57,17 @@
       }
       .table-title {
         width: 60%;
+        p {
+          cursor: pointer;
+
+        }
       }
       .table-ratings {
         width: 60px;
         background-color: $dark-lava;
+        p {
+          width: fit-content;
+        }
       }
       td, th {
         &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4) {

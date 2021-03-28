@@ -2,42 +2,13 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 350px auto;
-  grid-template-rows: 27px 92vh 25px;
+  grid-template-rows: 32px 92vh 20px;
   grid-template-areas: 
   "navbar navbar"
   "usertab lyricstab"
   "footer footer";
   background-color: $dark-lava;
 }
-.user-navbar {
-  grid-area: navbar;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: $dark-lava;
-  padding: 5px;
-  img {
-    height: 60px;
-    position: absolute;
-    margin-right: 16px;
-    z-index: 3;
-    &:hover {
-      transform: scale(1.1);
-      transition: 0.2s;
-    }
-  }
-  a {
-
-    color: white;
-    font-weight: bold;
-    margin-right: 16px;
-    &:hover {
-      text-decoration: none;
-      color: $less-home-pink;
-    }
-  }
-}
-
 ////////////////
 // users tab //
 ////////////////
@@ -148,6 +119,7 @@
       color: $alabaster;
       border: 2px solid transparent;
       font-weight: 100;
+      cursor: pointer;
       &:hover {
         color: white;
         background-color: $home-pink !important;
@@ -180,9 +152,9 @@
   }
 }
 
-////////////////
+/////////////////
 // lyrics grid //
-////////////////
+/////////////////
 .lyrics-tab {
   max-width: 100%;
   grid-area: lyricstab;
@@ -318,6 +290,8 @@
   grid-area: footer;
   background: linear-gradient(180deg, rgba(255,255,255,0.2) 14%, rgba(70,63,58,1) 100%);
 }
+
+/////////// ANIMATIONS
 
 @keyframes float-logo {
   0% { transform: rotate(0deg) }
