@@ -98,6 +98,9 @@
   }
   .modal {
     margin-top: 1.5% ;
+    .modal-title {
+      color: white;
+    }
     .modal-body {
       max-height: 70vh;
       overflow-x: auto !important;

@@ -117,6 +117,8 @@
 }
 @keyframes bg-animation {
   0% { background-position: 0% 0% }
+  50% {backdrop-filter: rotate(90deg);
+      filter: hue-rotate(25deg);}
   100% { background-position: 100% 100% }
 }
 
