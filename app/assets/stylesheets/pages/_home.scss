@@ -2,9 +2,10 @@
   //min-height: 200vh;
   min-width: 100vh;
   background: linear-gradient(40deg, rgba(131, 58, 180, 0.986) 0%, rgb(29, 253, 186) 74%, rgba(249, 69, 252, 0.986) 100%);
-  background-size: 6000px 6000px;
-  background-blend-mode: hue;
-  animation: bg-animation 20s infinite alternate linear;
+  background-size: 600% 600%;
+  //background-blend-mode: hue;
+  backdrop-filter: blur(10px);
+  animation: bg-animation 20s infinite alternate ease;
 }
 
 .home-content {
@@ -108,10 +109,9 @@
           -webkit-text-stroke: 0.1px #ff3eec8a;}
 }
 @keyframes bg-animation {
-  0% { background-position: left }
-  100% { background-position: right }
+  0% { background-position: 0% 0% }
+  100% { background-position: 100% 100% }
 }
-
 
 
 
