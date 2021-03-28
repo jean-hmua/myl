@@ -1,0 +1,110 @@
+<!--GRID wrapper-->
+<div class="grid-container">
+  <!--GRID -  navbar (holds more link to user and MyLy (to public index)) -->
+  <div class="user-navbar">
+    <%= render "shared/navbar" %>
+  </div>
+  
+  <!--GRID -  user-tab (flexbox)-->
+  <div class="user-tab">
+  
+    <!--user info-->
+      <div class="user-info" style="background: linear-gradient(0deg, rgba(0,0,0,0.4821564749385534) 1%, rgba(255,255,255,0) 100%),  url(<% if @user.bkg_pic.attached? %><%= @user.bkg_pic.service_url %>) <% else %> https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80)<% end %>;">
+      <div class="user-btn">
+          <p><%= link_to  "add friend  (soon)",  "#" %>  </p>
+          
+        </div>
+        
+        <div class="avatar-pic">        
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar %>
+          <% else %>
+            <%= image_tag  "https://thispersondoesnotexist.com/image" %>
+          <% end %>
+          
+
+          <h5 class="username"><%= @user.email %></h5>
+        </div>
+      </div>
+
+    <!--lyrics menu -->
+      <div class="lyrics-menu">
+        <div class="each-lyric">
+          <ul class="lyrics-list nav  flex-column" id="lyricsTab" role="tablist">
+            <% if @song_texts %>
+              <% @song_texts.each do |song_text| %>
+                <li class="nav-item">
+                  <h5 class="nav-link song-link 
+                  <%= 'active' if ["#{song_text.id}"].include? params[:song] %> <%= 'active-border' if song_text.color_tag != "" %>" 
+                  
+                  id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false" 
+                  
+                  <%  if song_text.color_tag != "" %> style="border-right: 6px solid  <%= song_text.color_tag %>;" <% else %>style="border-right: 6px solid transparent;"<% end %>>
+                  <%= "#{song_text.title}" %>
+                  <%#= raise %>
+                  </h5>
+                </li> 
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+
+  <!--GRID -  lyr-tab -->
+    <div class="lyrics-tab empty-tab-bkg">
+      <div class="tab-content" id="LyricsTabContent">
+        <!--Default Tab -->
+          <div class="tab-pane fade <%= 'active show' unless params[:song] %>">
+              <div class="empty-tab">
+                <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
+              </div>
+          </div>
+                
+        <% if @song_texts %>
+          <% @song_texts.each do |song_text| %>
+
+          <!-- TABS -->
+            <div class="tab-pane fade <%= 'active show' if ["#{song_text.id}"].include? params[:song] %>" id="song-<%= song_text.id %>"  role="tabpanel" aria-labelledby="song-<%= song_text.id %>-tab">
+
+            <!--GRID wrapper-->
+              <div class="tab-bkg">
+                <div class="lyrics-grid-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag  %><% else %> #463F3A <%end%>; opacity: 80%;">
+                  <div class="title" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                    <div class="title-container">
+                      <h1><%= song_text.title %></h1>
+                      <% if song_text.rating %>
+                        <p><%= "⭐" * song_text.rating  %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                  
+                  <!-- LYRICS -->
+                    <div class="lyrics-wrapper" style="background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; border-bottom: 8px solid <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>;">
+                      
+                      <div class="lyrics">
+                        <p><%= song_text.content %></p>
+                      </div>
+
+                      <div class="notes">
+                        <p><%= song_text.notes %></p>
+                      </div>
+                    </div>
+
+                </div>
+              
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      
+      </div>
+    </div>
+
+  <!--  - Footer-->
+  <div class="footer">
+
+  </div>
+
+</div>

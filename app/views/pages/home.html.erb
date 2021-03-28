@@ -2,10 +2,35 @@
   <%= render "shared/navbar" %>
   <div class="banner">
     <div class="home-content">
-      <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
-
-      <%= link_to "Your Lyrics", user_song_texts_path, class:"btn-home" %> 
-      <%= link_to "Explore", song_texts_path, class:"btn-home" %>
+      <div class="info-area">
+        <div class="info">
+          <h3>No more paper mess:</h3> 
+          <h1>your lyrics now organized.</h1>
+          <hr>
+          <ul>
+            <li>Use colors to express moods</li><br>
+            <li>Give your lyrics some notes to remember details about which rythm, key or emotion you envisioned for the song. You can also use the notes to explain your creative process and organize yourself when making the song reality! </li><br>
+            <li>Explore what other users are writing.</li><br>
+          </ul>
+          <br><br>
+          <h5> soon: </h5><br>
+          <ul>
+            <li>Phone support</li>
+            <li>Add friends</li>
+            <li>Search for rhymes while writing</li>
+            <li>Easier Color Picking</li>
+          </ul>
+        </div>
+      </div>
+      <div class="action">
+        <div class="logo-img">
+          <%= image_tag "tmp/Asset-3d.svg", class: "logo" %> <br>
+        </div>
+        <div class="btn-area">
+          <%= link_to "Your Lyrics", user_song_texts_path, class:"btn-home" %> 
+          <%= link_to "Explore", song_texts_path, class:"btn-home" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

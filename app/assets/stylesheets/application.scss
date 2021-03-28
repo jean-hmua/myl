@@ -44,7 +44,10 @@
 .body-container {
   background-color:  $dark-lava;
   height: 100%;
+  min-width: 100vh;
+  min-height: 100vh;
 }
+
 
 .new-form-container {
   height : 100vh;
@@ -78,4 +81,17 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: $muted-home-pink;
   transition: 0.5s;
+}
+
+.alert {
+  background-color: $less-home-pink;
+  border: 0px solid transparent;
+  color: $dark-lava;
+  animation:  alert-disappear 10s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes alert-disappear {
+  80% { opacity: 100%; }
+  100% { opacity: 0; }
 }

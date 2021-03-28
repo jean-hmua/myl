@@ -7,9 +7,10 @@
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             
+            <%= link_to "Home", root_path, class:"dropdown-item"  %>
             <%= link_to "Explore", song_texts_path, class:"dropdown-item"  %>
             <%= link_to "Your Lyrics", user_song_texts_path, class:"dropdown-item"  %>
-            <a class="dropdown-item" href="#">About Us</a>
+            <%= link_to "About Us", "#", class:"dropdown-item"  %>
           </div>
         </div>
         

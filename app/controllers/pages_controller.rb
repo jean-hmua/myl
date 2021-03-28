@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    @user = User.find(params[:id])
+    
+    @song_texts = SongText.where(user: @user) # and public
+  end
 end

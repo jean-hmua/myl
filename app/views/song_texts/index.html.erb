@@ -43,7 +43,7 @@
               <p>  <%= song_text.title %></p>
             </td>
             <td>
-              <p>  <%= (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email) %></p>
+              <a href="<%= profile_path(song_text.user.id) %>"><%= (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email) %></a>
             </td>
             <td class="table-ratings">
               <p ><%= "⭐" * song_text.rating if song_text.rating %><%= "" if song_text.ratable == true %></p>
