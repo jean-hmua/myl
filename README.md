@@ -18,6 +18,7 @@ My biggest challenge was understanding how to place the pieces together with CSS
 Run:
 > bundle install
 > rails db:create db:migrate db:seed
+> 
 > rails s
 
 Then on your browser go to:
