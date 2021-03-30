@@ -323,3 +323,18 @@
         filter: drop-shadow(0px 0px 8px  $home-pink);}
 }
 
+.modal-content {
+  background-color:  $dark-lava;
+  color: white;
+  .text-muted {
+    color: white !important;
+  }
+  .btn-submit {
+    background-color: white;
+    color: $dark-lava;
+  } 
+  .btn-secondary {
+    background-color:  $dark-lava;
+    color: white;
+  }
+}

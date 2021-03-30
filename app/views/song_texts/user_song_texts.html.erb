@@ -16,20 +16,17 @@
             <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
             <div class="form-inputs">
-            <div class="check d-flex justify-content-around">
-              <%= f.input :public_lyric %>
-              <%= f.input :ratable %>
-            </div>
               <%= f.input :title %>
-              <%= f.input :rating %>
               <%= f.input :content %>
               <%= f.input :notes %>
-              <%= f.input :color_tag %>
+              <%= f.input :color_tag,  hint: 'Use HEX'%>
+              <%= f.input :ratable ,  hint: 'Mark it if you want people to rate your song', label: "Ratable" %>
+              <%= f.input :public_lyric, hint: 'Unmark it if you want to make it private', label: "Public"  %>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <%= f.button :submit %>
+              <%= f.button :submit, 'Submit', class: "btn-submit" %>
               <% end %>
           </div>
         </div>
@@ -123,14 +120,14 @@
                         <%= f.input :title %>
                         <%= f.input :content %>
                         <%= f.input :notes %>
-                        <%= f.input :color_tag,  :hint => 'Use HEX'%>
-                        <%= f.input :ratable ,  :hint => 'Mark it if you want people to rate your song'%>
-                        <%= f.input :public_lyric, ,  :hint => 'Unmark it if you want to make it private' %>
+                        <%= f.input :color_tag,  hint: 'Use HEX'%>
+                        <%= f.input :ratable ,  hint: 'Mark it if you want people to rate your song', label: "Ratable" %>
+                        <%= f.input :public_lyric, hint: 'Unmark it if you want to make it private', label: "Public"  %>
                       </div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <%= f.button :submit %>
+                      <%= f.button :submit, "Update", class: "btn-submit" %>
                       <% end %>
                     </div>
                   </div>
