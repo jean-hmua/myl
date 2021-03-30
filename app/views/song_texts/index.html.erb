@@ -13,7 +13,7 @@
           
         </tr>
         <% @song_texts.each do |song_text| %>
-        <!-- Modal -->
+        <!-- Modal 
           <div class="modal fade" id="showSongModal-<%= song_text.id %>" tabindex="-1" role="dialog" aria-labelledby="showSongModalLabel-<%= song_text.id %>" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content" style= "background-color: transparent;">
@@ -34,22 +34,42 @@
               </div>
             </div>
           </div>
+          -->
         <!-- TABLE -->
           <tr>
             <td style="background-color: <% if song_text.color_tag != "" %> <%= song_text.color_tag %><% else %> #463F3A <%end%>;">
               
             </td>
-            <td class="table-title" class="btn btn-primary" data-toggle="modal" data-target="#showSongModal-<%= song_text.id %>">
-              <p>  <%= song_text.title %></p>
+            <td class="table-title" id="title-<%= song_text.id %>">
+              <p><%= link_to song_text.title, profile_path(song_text.user.id, song: song_text.id ) %></p>
             </td>
             <td>
-              <a href="<%= profile_path(song_text.user.id) %>"><%= (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email) %></a>
+              
+              <p><%= link_to (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email), profile_path(song_text.user.id, song: song_text.id ) %></p>
             </td>
             <td class="table-ratings">
-              <p ><%= "⭐" * song_text.rating if song_text.rating %><%= "" if song_text.ratable == true %></p>
+              <p>
+                <% if song_text.ratable == true %>
+                  <%= "⭐" * song_text.rating %>
+                <% else %>
+                  not ratable
+                <% end %>
+              </p>
             </td>
-          </tr>
+            <!--div class="popup-wrapper" id="popupWrapper">
+              <div class="lyrics-popup" id="lyricsPopup-<%= song_text.id %>">
+                <div class="lyrics-popup-header" style= "background-color: <% if song_text.color_tag != "" %><%= song_text.color_tag %><% else %> #463F3A <%end%>; ">
+                  <h5 class="lyrics-popup-title" id="showSongPopUp-<%= song_text.id %>"><%= song_text.title %></h5> 
+                  <h5>X</h5>
+                </div>
+                <div class="lyrics-popup-body">
+                    <h6>by <%= (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email) %></h6>
+                    <p><%= song_text.content %></p>
+                  </div>
+              </div>
+            </div-->
         <% end %>
+          </tr>
       </table>
       <div class="pag">
         <%= paginate @song_texts %>

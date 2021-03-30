@@ -270,7 +270,7 @@
   background-blend-mode: hard-light ;
   background-size: 150% 150%;
   animation: bg-animation 20s infinite alternate linear;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -278,6 +278,7 @@
   color: white;
   height: 93.1vh;
   overflow: hidden;
+
   img {
     margin-top: 20%;
     overflow: hidden;
@@ -294,19 +295,46 @@
 /////////// ANIMATIONS
 
 @keyframes float-logo {
-  0% { transform: rotate(0deg) }
+  0% {  transform: rotate(0deg);
+        filter: drop-shadow(0px 0px 5px  $home-pink)}
+
   25% { transform: scale(1.1) rotate(30deg);
         margin-left: 100px;
-        margin-top: 11%}
+        margin-top: 11%;
+        filter: drop-shadow(0px 0px 30px  $home-pink) ; }
+
   35% { transform: scale(1) rotate(10deg);
         margin-left: 250px; }
+        
   50% { transform: scale(1.1) rotate(0deg); 
-        margin-top: 28%}
+        margin-top: 28%;
+        filter: drop-shadow(0px 0px 10px  $home-pink);}
+
   75% { transform: scale(1.2) rotate(-40deg);
-        margin-top: 15% }
-  80% { transform: scale(1) rotate(-20deg);
-        margin-left: -250px;
-        margin-top: 25%}
+        margin-top: 15%; }
+
+  85% { transform: scale(1.1) rotate(-20deg);
+        margin-left: -150px;
+        margin-top: 25%;
+        filter: drop-shadow(0px 0px 5px  $home-pink);}
+
   100%{ transform: rotate(0deg);
-        margin-top: 20%}
+        margin-top: 20%;
+        filter: drop-shadow(0px 0px 8px  $home-pink);}
+}
+
+.modal-content {
+  background-color:  $dark-lava;
+  color: white;
+  .text-muted {
+    color: white !important;
+  }
+  .btn-submit {
+    background-color: white;
+    color: $dark-lava;
+  } 
+  .btn-secondary {
+    background-color:  $dark-lava;
+    color: white;
+  }
 }

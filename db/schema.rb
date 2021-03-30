@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 2021_03_23_185540) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.boolean "ratable", default: false
+    t.boolean "ratable", default: true
     t.string "line_height"
-    t.boolean "public_lyric", default: false
+    t.boolean "public_lyric", default: true
     t.index ["user_id"], name: "index_song_texts_on_user_id"
   end
 

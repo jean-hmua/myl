@@ -5,6 +5,7 @@
     background-size: 6000px 6000px;
     background-blend-mode: hue;
     animation: bg-animation 20s infinite alternate linear;
+    width: 100%;
 }
 .index-grid-container {
   min-height: 100vh;
@@ -22,8 +23,8 @@
     // table setup
     table {
       
-      margin: 100px 100px 20px 100px;
-      max-width: 830px;
+      margin: 100px;
+      width: clamp(40%, 80%, 80%);
       -webkit-box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
       box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
       th {
@@ -37,6 +38,13 @@
       tr:not(:first-child) { 
         transition: 0.2s;
         background-color: rgba(255, 255, 255, 0.575);
+        a {    
+          padding-left: 8px;
+          color: $dark-lava;
+          &:hover { color: white }
+          width:100%;
+          display: block;
+        }
         &:hover {
           background-color: $less-home-pink;
           transform: scale(1.01);
@@ -46,7 +54,7 @@
           border: 1px solid #83217988;
         }
         p {
-          margin: 5px !important;
+          margin: 4px;
         }
       }
       tr:nth-child(even) {
@@ -54,13 +62,10 @@
         &:hover {
           background-color: $less-home-pink;        
         }
+        
       }
       .table-title {
-        width: 60%;
-        p {
-          cursor: pointer;
-
-        }
+        //width: 60%;
       }
       .table-ratings {
         width: 60px;
@@ -75,8 +80,8 @@
           border-collapse: collapse;
         }
       }
+      
     }
-    
     .pag {
       margin: 20px 0;
       display: flex !important;
@@ -96,9 +101,37 @@
       }
     }
   }
-  .modal {
-    margin-top: 1.5% ;
-    .modal-body {
+  .popup-wrapper {
+    opacity: 0;
+    display: none;
+    margin: 0;
+    content: "";
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: $dark-lava;
+    
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+  .lyrics-popup {
+    opacity: 0;
+    display: none;
+    z-index: 5;
+    width: 80%;
+    margin: 5% auto;
+    top: 65px;
+    .lyrics-popup-header {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 16px;
+    }
+    .lyrics-popup-body {
       max-height: 70vh;
       overflow-x: auto !important;
       white-space: pre-line;
@@ -106,10 +139,10 @@
       text-align: center;
       white-space: pre-line;
     }
-    .modal-content {
-      width: 800px;
-      margin: 0 -160px;
-    }
+  }
+
+  .lyrics-popup {
+ 
   }
   .index-footer {
     background: linear-gradient(180deg, rgba(255,255,255,0) 14%, rgba(70,63,58,1) 100%) !important;
