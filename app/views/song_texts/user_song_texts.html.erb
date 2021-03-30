@@ -121,10 +121,11 @@
 
                       <div class="form-inputs">
                         <%= f.input :title %>
-                        <%= f.input :rating %>
                         <%= f.input :content %>
                         <%= f.input :notes %>
-                        <%= f.input :color_tag %>
+                        <%= f.input :color_tag,  :hint => 'Use HEX'%>
+                        <%= f.input :ratable ,  :hint => 'Mark it if you want people to rate your song'%>
+                        <%= f.input :public_lyric, ,  :hint => 'Unmark it if you want to make it private' %>
                       </div>
                     </div>
                     <div class="modal-footer">
