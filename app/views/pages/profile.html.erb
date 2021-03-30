@@ -23,7 +23,13 @@
           <% end %>
           
 
-          <h5 class="username"><%= @user.email %></h5>
+          <h5 class="username">
+            <% if @user.username %> 
+              <%= @user.username %>  
+            <% else %>
+              <%= @user.email %>
+            <% end %>    
+          </h5>
         </div>
       </div>
 
