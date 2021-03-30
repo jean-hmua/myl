@@ -38,8 +38,8 @@
 @import "components/navbar";
 
 // GLOBAL Settings
-.body {
-  background-color: $dark-lava;
+body {
+  background-color: $dark-lava !important;
 }
 .body-container {
   background-color:  $dark-lava;
