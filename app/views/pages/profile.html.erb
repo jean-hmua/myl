@@ -35,7 +35,7 @@
               <% @song_texts.each do |song_text| %>
                 <li class="nav-item">
                   <h5 class="nav-link song-link 
-                  <%= 'active' if ["#{song_text.id}"].include? params[:song] %> <%= 'active-border' if song_text.color_tag != "" %>" 
+                  <%= 'active' if params[:song] == song_text.id %> <%= 'active-border' if song_text.color_tag != "" %>" 
                   
                   id="song-<%= song_text.id %>-tab" data-toggle="tab" href="#song-<%= song_text.id %>" role="tab" aria-controls="#song-<%= song_text.id %>" aria-selected="false" 
                   

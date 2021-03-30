@@ -72,74 +72,99 @@ puts "Creating song for main user...."
 counter = 0
 10.times do
   counter += 1
-  main_user_lyrics = SongText.create(title: "#{Faker::Book.title}", content: "Only Fire fuck it up
-
-    Don’t you ever get bored
-    When you’re deep in my vagina
-    Going down the path
-    Long as the Great Wall of China
-    You want something tight
-    That fits right onto your dick
-    You want something that doesn’t bleed
-    Every 4th week
-    
-    Let’s do anal sex
-    So my pussy can rest
-    Let’s do anal sex
-    So that you can tell your ex
-    I’ll lick my shit off your dick
-    If you show me respect
-    I’ll lick my shit off your dick
-    If you write me a check
-    Let’s do anal sex
-    So my pussy can rest
-    Let’s do anal sex
-    So that you can tell your ex
-    I’ll lick my shit off your dick
-    If you show me respect
-    I’ll lick my shit off your dick
-    If you write me a check
-    If it’s sharp
-    Like a needle
-    I may cry
-    Just a little
-    You can’t cum
-    In the middle
-    We ain’t married
-    That’s illegal
-    But I really don’t care
-    If it’s something wrong
-    I haven’t done anal
-    For so long
-    Bitch, pour me up a drink
-    I want something strong
-    Your dick in my ass
-    That’s my favorite song
-    
-    Can you cum on my nose
-    As I suck your big toes
-    Anus red like a rose
-    When you eat it strike a pose
-    Eat it good, eat it right
-    Beat it hard, don’t beat it light
-    I shake my ass when there’s cum in it
-    Watch it pop like Sprite
-    Let’s do anal sex
-    So my pussy can rest
-    Let’s do anal sex
-    So that you can tell your ex
-    I’ll lick my shit off your dick
-    If you show me respect
-    I’ll lick my shit off your dick
-    If you write me a check
-    Let’s do anal sex
-    So my pussy can rest
-    Let’s do anal sex
-    So that you can tell your ex
-    I’ll lick my shit off your dick
-    If you show me respect
-    I’ll lick my shit off your dick
-    If you write me a check", notes: "that one is cool, key: #{Faker::Music.key}, genre: #{Faker::Music.genre}", user_id: main_user.id, color_tag: "#{color_tags.sample}", rating: rand(1..5))
+  main_user_lyrics = SongText.create(title: "#{Faker::Book.title}", content: "Yes
+    It's so crazy right now
+    Most incredibly, it's ya girl, B
+    It's ya boy, young
+    You ready?
+    Uh oh, uh oh, uh oh, oh, no, no
+    Uh oh, uh oh, uh oh, oh, no, no
+    Uh oh, uh oh, uh oh, oh, no, no
+    Uh oh, uh oh, uh oh, oh, no, no
+    Yeah, history in the making
+    Part two, it's so crazy right now
+    I look and stare so deep in your eyes
+    I touch on you more and more every time
+    When you leave, I'm begging you not to go
+    Call your name two, three times in a row
+    Such a funny thing for me to try to explain
+    How I'm feeling and my pride is the one to blame
+    'Cause I know I don't understand
+    Just how your love can do what no one else can
+    Got me looking so crazy right now, your love's
+    Got me looking so crazy right now (your love)
+    Got me looking so crazy right now, your touch
+    Got me looking so crazy right now (your touch)
+    Got me hoping you'll page me right now, your kiss
+    Got me hoping you'll save me right now
+    Looking so crazy, your love's
+    Got me looking, got me looking so crazy in love
+    Uh oh, uh oh, uh oh, oh, no, no
+    Uh oh, uh oh, uh oh, oh, no, no
+    Uh oh, uh oh, uh oh, oh, no, no
+    Uh oh, uh oh, uh oh, oh, no, no
+    When I talk to my friends so quietly
+    Who he think he is? Look at what you did to me
+    Tennis shoes, don't even need to buy a new dress
+    If you ain't there, ain't nobody else to impress
+    It's the way that you know what I thought I knew
+    It's the beat that my heart skips when I'm with you
+    But I still don't understand
+    Just how your love can do what no one else can
+    Got me looking so crazy right now, your love's
+    Got me looking so crazy right now (oh, crazy)
+    Got me looking so crazy right now, your touch (your love)
+    Got me looking so crazy right now (love)
+    Got me hoping you'll page me right now, your kiss (hey)
+    Got me hoping you'll save me right now
+    Looking so crazy, your love's (hey)
+    Got me looking, got me looking so crazy in love
+    I'm looking so crazy in love's
+    Got me looking, got me looking so crazy in love
+    I'm warmed up now, let's go
+    Young 'Hov, y'all know when the flow is loco
+    Young B and the R-O-C, uh oh (oh)
+    Ol' G, big homey, the one and only
+    Stick bony, but the pocket is fat like Tony Soprano (oh no)
+    The ROC handle like Van Axel
+    I shake phonies, man, you can't get next to
+    The genuine article, I do not sing though
+    I sling though, if anything, I bling yo
+    A star like Ringo, war like a Green Beret
+    Crazy bring ya whole set
+    Jay Z in the range, crazy and deranged
+    They can't figure him out, they like, 'Hey, is he insane?'
+    Yessir, I'm cut from a different cloth
+    My texture is the best fur, chinchilla
+    (Uh oh, uh oh, uh oh, oh, no, no) I been iller than chain smokers
+    How you think I got the name Hova?
+    (Uh oh, uh oh, uh oh, oh, no, no) I been realer, the game's over
+    (Uh oh, uh oh, uh oh, oh, no, no) Fall back, young, ever since I made the change over
+    (Uh oh, uh oh, uh oh, oh, no, no) To platinum the game's been wrap, one
+    Got me looking so crazy, my baby
+    I'm not myself, lately I'm foolish, I don't do this
+    I've been playing myself, baby, I don't care
+    'Cause your love's got the best of me
+    And, baby, you're making a fool of me
+    You got me sprung and I don't care who sees
+    'Cause, baby, you got me, you got me so crazy, baby
+    Hey
+    Got me looking so crazy right now, your love's (oh love)
+    Got me looking so crazy right now (lookin' crazy)
+    Got me looking so crazy right now, your touch
+    Got me looking so crazy right now
+    Got me hoping you'll page me right now, your kiss (baby)
+    Got me hoping you'll save me right now (baby)
+    Looking so crazy in love's (whoa)
+    Got me looking, got me looking so crazy in love (whoa)
+    Got me looking so crazy right now, your love's
+    Got me looking so crazy right now (your love)
+    Got me looking so crazy right now, your touch
+    Got me looking so crazy right now (your touch)
+    Got me hoping you'll page me right now, your kiss
+    Got me hoping you'll save me right now
+    Looking so crazy in love's
+    Got me looking, got me looking so crazy in love", notes: "that one is cool, key: #{Faker::Music.key}, genre: #{Faker::Music.genre}", user_id: main_user.id, color_tag: "#{color_tags.sample}", rating: rand(1..5))
   puts "🆕 created song ##{counter}: #{main_user_lyrics.title} for user #{main_user} \n"
 end
 puts "Songs for main user created"

@@ -48,7 +48,13 @@
               <p><%= link_to (song_text.user.username if song_text.user.username)  || (song_text.user.email if song_text.user.email), profile_path(song_text.user.id, song: song_text.id ) %></p>
             </td>
             <td class="table-ratings">
-              <p ><%= "⭐" * song_text.rating if song_text.rating %><%= "not ratable" if song_text.ratable == true %></p>
+              <p>
+                <% if song_text.ratable == true %>
+                  <%= "⭐" * song_text.rating %>
+                <% else %>
+                  not ratable
+                <% end %>
+              </p>
             </td>
             <!--div class="popup-wrapper" id="popupWrapper">
               <div class="lyrics-popup" id="lyricsPopup-<%= song_text.id %>">

@@ -7,6 +7,6 @@ class PagesController < ApplicationController
   def profile
     @user = User.find(params[:id])
     
-    @song_texts = SongText.where(user: @user) # and public
+    @song_texts = SongText.where(user: @user && public_lyric = true)
   end
 end
