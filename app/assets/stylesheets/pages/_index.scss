@@ -39,9 +39,11 @@
         transition: 0.2s;
         background-color: rgba(255, 255, 255, 0.575);
         a {    
-          padding-left: 16px;
+          padding-left: 8px;
           color: $dark-lava;
           &:hover { color: white }
+          width:100%;
+          display: block;
         }
         &:hover {
           background-color: $less-home-pink;
@@ -52,7 +54,7 @@
           border: 1px solid #83217988;
         }
         p {
-          margin: 5px !important;
+          margin: 4px;
         }
       }
       tr:nth-child(even) {
@@ -63,11 +65,7 @@
         
       }
       .table-title {
-        width: 60%;
-        p {
-          cursor: pointer;
-
-        }
+        //width: 60%;
       }
       .table-ratings {
         width: 60px;
@@ -82,8 +80,8 @@
           border-collapse: collapse;
         }
       }
+      
     }
-    
     .pag {
       margin: 20px 0;
       display: flex !important;
