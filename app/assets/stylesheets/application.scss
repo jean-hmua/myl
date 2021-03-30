@@ -48,7 +48,6 @@ body {
   min-height: 100vh;
 }
 
-
 .new-form-container {
   height : 100vh;
 }
@@ -65,9 +64,10 @@ a {
   font-family: 'Blinker', sans-serif !important;
   &:hover {
     text-decoration: none;
-    
   }
 }
+
+// Scrollbar
 ::-webkit-scrollbar {
   width: 14px;
   background-color: $dark-lava;
@@ -82,7 +82,11 @@ a {
   background: $muted-home-pink;
   transition: 0.5s;
 }
+::-webkit-scrollbar-corner {
+  background-color: $dark-lava;
+}
 
+// Alerts
 .alert {
   background-color: $less-home-pink;
   border: 0px solid transparent;
