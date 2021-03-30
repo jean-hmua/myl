@@ -1,6 +1,6 @@
 class SongTextsController < ApplicationController
   before_action :set_song_text, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[ index profile ]
 
   def index
     @song_texts = policy_scope(SongText.where(public_lyric: true)).order(created_at: :desc).page params[:page]

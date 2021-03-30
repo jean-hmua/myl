@@ -7,18 +7,14 @@ class SongTextPolicy < ApplicationPolicy
   
   def index?
     scope.all
-    #.where(public? == true)
- 
   end
 
   def show?
     true
-
   end
 
   def create?
     true
-
   end
 
   def new?
@@ -26,8 +22,7 @@ class SongTextPolicy < ApplicationPolicy
   end
 
   def update?
-    true
-
+    record.user == user || user.admin?
   end
 
   def edit?
@@ -35,7 +30,7 @@ class SongTextPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    record.user == user || user.admin?
   end
 
   def user_song_texts?
