@@ -38,6 +38,11 @@
       tr:not(:first-child) { 
         transition: 0.2s;
         background-color: rgba(255, 255, 255, 0.575);
+        a {    
+          padding-left: 16px;
+          color: $dark-lava;
+          &:hover { color: white }
+        }
         &:hover {
           background-color: $less-home-pink;
           transform: scale(1.01);
@@ -55,6 +60,7 @@
         &:hover {
           background-color: $less-home-pink;        
         }
+        
       }
       .table-title {
         width: 60%;
@@ -97,12 +103,37 @@
       }
     }
   }
-  .modal {
-    margin-top: 1.5% ;
-    .modal-title {
+  .popup-wrapper {
+    opacity: 0;
+    display: none;
+    margin: 0;
+    content: "";
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: $dark-lava;
+    
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+  .lyrics-popup {
+    opacity: 0;
+    display: none;
+    z-index: 5;
+    width: 80%;
+    margin: 5% auto;
+    top: 65px;
+    .lyrics-popup-header {
       color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 16px;
     }
-    .modal-body {
+    .lyrics-popup-body {
       max-height: 70vh;
       overflow-x: auto !important;
       white-space: pre-line;
@@ -110,10 +141,10 @@
       text-align: center;
       white-space: pre-line;
     }
-    .modal-content {
-      width: 800px;
-      margin: 0 -160px;
-    }
+  }
+
+  .lyrics-popup {
+ 
   }
   .index-footer {
     background: linear-gradient(180deg, rgba(255,255,255,0) 14%, rgba(70,63,58,1) 100%) !important;
